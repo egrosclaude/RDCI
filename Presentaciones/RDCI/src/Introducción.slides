@@ -1,0 +1,329 @@
+<!-- INCLUDE src/reveal.header -->
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h1>Redes de Computadoras</h1>
+<h2>Introducción</h2>
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Componentes de las redes</h2>
+<ul>
+	<span class="fragment">
+	<li>Borde</li>
+	<ul>
+		<li>Computadoras de escritorio, portátiles, celulares, sensores, servidores</li>
+		<li><b>Sistemas finales, sistemas extremos o hosts</b></li>
+	</ul>
+	</span>
+	<span class="fragment">
+	<li>Núcleo</li>
+	<ul>
+		<li>Routers, switches</li>
+		<li>En general, <b>nodos de conmutación</b></li>
+	</ul>
+	</span>
+	<span class="fragment">
+	<li>Vínculos o enlaces</li>
+	<ul>
+		<li>Propios (LAN) o contratados (WAN)</li>
+	</ul>
+	</span>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Aplicaciones distribuidas</h2>
+<ul>
+	<li>Las aplicaciones corren en los sistemas finales</li>
+	<ul>
+		<li>WWW, E-mail, mensajería instantánea, telefonía, juegos en red, archivos compartidos, videoconferencia</li>
+		<li class="fragment">Tienen diferentes requerimientos de ancho de banda, de confiabilidad, de temporización</li>
+	   <span class="fragment">
+		<li>La red les ofrece dos tipos básicos de servicio de transporte</li>
+		<ul>
+			<li>Orientado a conexión, confiable (<b>TCP</b>)</li>
+			<li>No orientado a conexión, no confiable (<b>UDP</b>)</li>
+		</ul>
+	   </span>
+	</ul>
+</ul>
+<!-- <img src="img/imagen.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Conmutación de circuitos</h2>
+<ul>
+	<li>Telefonía tradicional</li>
+	<li>Antes de empezar a transmitir datos:</li>
+	<ul>
+		<li>La red establece una conexión dedicada, de extremo a extremo</li>
+		<li>Reserva ancho de banda de cada enlace a lo largo de la conexión</li>
+		<li>El ancho de banda reservado se desperdicia mientras los sistemas finales no transmiten</li>
+	</ul>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Conmutación de paquetes</h2>
+<ul>
+	<li>El flujo de información se descompone en paquetes</li>
+	<li>Cada paquete es transportado separadamente</li>
+	<li><b>Store and Forward</b>: cada paquete se almacena en el nodo de conmutación antes de reenviarlo</li>
+	<ul>
+		<li>Se usa información de destino que viaja junto con el paquete</li>
+		<li>Cada nodo de conmutación reenvía el paquete desde el enlace por donde llega, al siguiente</li>
+	</ul>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Protocolos</h2>
+<ul>
+	<li>Definen:</li>
+	<ul>
+		<li>Formato y orden de los mensajes que serán intercambiados entre las entidades que se comunican</li>
+		<li>Acciones a tomar ante la recepción de un mensaje u otro evento</li>
+	</ul>
+   <span class="fragment">
+	<li>Un autómata para cada entidad</li>
+	<li>Transiciones disparadas por mensajes u otros eventos</li>
+   </span>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Medios físicos</h2>
+	<div class="double">
+	<div>
+	Medios guiados<hr>
+	<ul>
+	<li>Cobre</li>
+		<ul>
+		<li>Pares trenzados, coaxial</li>
+		</ul>
+	<li>Fibra óptica</li>
+	</ul>
+	</div>
+	<p></p>
+	<div>
+	Medios no guiados<hr>
+	<ul>
+	<li>Inalámbricos o <b>Wireless</b></li>
+		<ul>
+		<li>Bluetooth</li>
+		<li>WiFi</li>
+		<li>Microondas terrestres</li>
+		<li>Satélites</li>
+		</ul>
+	</ul>
+	</div>
+	</div>
+
+<!-- <img src="img/imagen.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Redes de acceso</h2>
+<ul>
+	<li>Medios e interfaces</li>
+	<ul>
+	<li>La interfaz es el dispositivo de un sistema, final o intermedio, donde se conecta a un medio</li>
+	<li>El sistema intercambia bits con el medio a través de la interfaz</li>
+	</ul>
+   <span class="fragment">
+	<li>Red local, Ethernet</li>
+	<li>Proveedores de servicio de Internet, <b>ISPs</b></li>
+	<ul>
+	<li>Dial-up, ADSL</li>
+	<li>Proveedores de cable</li>
+	</ul>
+   </span>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Internet, red de redes</h2>
+<ul>
+	<li>Jerarquía débil de redes</li>
+	<li>IP (<b>Internet Protocol</b>) las atraviesa a todas</li>
+   <span class="fragment">
+	<li>Niveles de ISPs o <b>tiers</b></li>
+	<ul>
+	<li>Tier 1, centro de la Internet</li>
+	<ul>
+		<li>Vínculos intercontinentales</li>
+	</ul>
+	<li>Un ISP de tier $n$ ofrece conexión a los de tier $n+1$</li>
+	<li>ISP regionales o locales conectan a usuarios finales</li>
+	</ul>
+   </span>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Encolamiento y pérdida</h2>
+<ul>
+	<li>En cada nodo de conmutación</li>
+	<ul>
+		<li class="fragment">Los paquetes se encolan frente a la interfaz de salida</li>
+		<li class="fragment">Sufren <b>retardo de encolamiento</b> proporcional a la longitud de la cola</li>
+		<li class="fragment">Puede existir pérdida (<b>loss</b>) si no hay espacio de buffering en la cola</li>
+	</ul>
+   <span class="fragment">
+	<li>Otros factores de retardo</li>
+	<ul>
+	<li><b>De procesamiento</b></li>
+	<li><b>De transmisión</b></li>
+	<li><b>De propagación</b></li>
+   </span>
+	</ul>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Retardos</h2>
+<ul>
+	<li>Críticos para la performance de las aplicaciones</li>
+	<li>Se suman para dar el retardo total de un enlace</li>
+   <span class="fragment">
+	<li>Retardo de transmisión</li>
+	<ul>
+		<li>Depende de la cantidad de bits y de la interfaz</li>
+		<li>$t_{transm} = L / v_{transm}$</li>
+	</ul>
+   </span>
+   <span class="fragment">
+	<li>Retardo de propagación</li>
+	<ul>
+		<li>Depende de la longitud del vínculo y de $c$</li>
+		<li>$t_{prop} = D / v_{prop} = D / c$</li>
+	</ul>
+   </span>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Capas de protocolos</h2>
+<ul>
+	<li>Pila o <b>stack</b> de protocolos</li>
+	<li>Modelo de capas ISO/OSI</li>
+   <span class="fragment">
+	<li>Modelo de capas de Internet</li>
+	<ul>
+		<li>Aplicación</li>
+		<li>Transporte</li>
+		<li>Red</li>
+		<li>Enlace</li>
+		<li>Física</li>
+	</ul>
+   </span>
+   <span class="fragment">
+	<li>Cada capa es cliente de la inferior</li>
+   </span>
+</ul>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Encapsulamiento</h2>
+<div class="double">
+<div>
+<ul>
+	<li>Unidad de datos de protocolo o <b>PDU</b> para cada nivel</li>
+	   <span class="fragment">
+		<li>Cada capa:</li>
+		<ul>
+			<li>Encapsula la PDU recibida con su <b>cabecera</b> creando una PDU de su nivel</li>
+			<li>Entrega su PDU a la siguiente capa</li>
+		</ul>
+	   </span>
+</ul>
+</div>
+<div>
+   <span class="fragment">
+	<table>
+		<tr><th>Capa</th><th>PDU</th></tr>
+		<tr><td>Aplicación</td><td>Mensaje</td></tr>
+		<tr><td>Transporte</td><td>Segmento</td></tr>
+		<tr><td>Red</td><td>Paquete o datagrama</td></tr>
+		<tr><td>Enlace</td><td>Trama, marco o <b>frame</b></td></tr>
+	</table>
+   </span>
+</div>
+</div>
+<!--
+<img src="img/imagen.png" class="plain stretch">
+-->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+
+<!-- INCLUDE src/reveal.trailer -->
