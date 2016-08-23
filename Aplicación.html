@@ -1,3 +1,233 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Redes de Computadoras I</title>
+		<meta name="description" content="Redes de Computadoras I">
+		<meta name="author" content="Eduardo Grosclaude">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/rdci.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+		<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+		<meta name="theme-color" content="#ffffff">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+ 		<link rel="stylesheet" type="text/css" href="reveal.js/plugin/asciinema/asciinema-player.css" />
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	  <div class="reveal">
+		<div class="slides">
+
+<!------------------------------------------------------------------>
+
+
+<!------------------------>
+<section data-background="img/background02.jpg" data-transition="slide-in slide-out">
+<div class="frosted">
+	<h3>Redes de Computadoras I</h3>
+	<h2>Capa de Aplicación</h2>
+</div>
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Capa de aplicación</h2>
+<div class="double">
+<div>
+<ul>
+	<li>Protocolos de aplicación</li>
+	<ul>
+		<li>Formato de mensajes</li>
+		<li>Orden de los mensajes</li>
+		<li>Acciones en respuesta</li>
+		<li>Otros eventos ajenos a la comunicación</li>
+	</ul>
+</ul>
+</div>
+<div>
+<ul>
+	<li>Vocabulario y lógica de la aplicación</li>
+	<li>Request/response</li>
+	<ul>
+		<li>HTTP</li>
+		<li>FTP</li>
+		<li>DNS</li>
+		<li>SMTP</li>
+		<li>¿Otros?</li>
+	</ul>
+</ul>
+</div>
+</div>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Arquitecturas de comunicación</h2>
+<ul>
+	<li>Cliente/servidor</li>
+	<ul>
+		<li>Servidor siempre en espera</li>
+		<li>Interacción disparada por el cliente</li>
+	</ul>
+	<li>Peer-to-peer</li>
+	<ul>
+		<li>No existe un rol definido</li>
+		<li>Las partes de la aplicación funcionan alternativamente como cliente o servidor</li>
+	</ul>
+	<li>Híbridas</li>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Servicios requeridos</h2>
+<ul>
+	<li>Confiable</li>
+	<ul>
+		<li>Control de flujo</li>
+		<li>Control de congestión</li>
+		<li>Confirmaciones o reconocimientos</li>
+		<li>Retransmisión en caso negativo</li>
+		<li>Si un segmento se pierde, la aplicación recibe notificación</li>
+		<li>Necesita el establecimiento de una conexión previamente al intercambio de datos</li>
+	</ul>
+	<li>No confiable</li>
+	<ul>
+		<li>Nada de lo anterior</li>
+	</ul>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>HTTP</h2>
+<ul>
+<li>Hypertext Transfer Protocol</li>
+	<ul>
+	<li>Usa transporte confiable</li>
+	<li>Request GET</li>
+	<li>Requests PUT, POST</li>
+	<li>Persistente y no persistente</li>
+	</ul>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Caching</h2>
+<ul>
+	<li>Reducir el tiempo de respuesta</li>
+	<li><b>Última milla</b>, con frecuencia cuello de botella</li>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Domain Name Service, DNS</h2>
+<ul>
+	<li>Servicio de traducción de nombres a direcciones IP</li>
+	<ul>
+		<li>Crítico para el funcionamiento de la red pero implementado a nivel de aplicación</li>
+		<li>Sistema de nombres jerárquico</li>
+		<li>Base de datos distribuida</li>
+		<li>Servidores redundantes</li>
+	</ul>
+	<li>Diferentes funciones </li>
+	<ul>
+		<li>Servidor local</li>
+		<li>Servidor raíz</li>
+		<li>Servidor de dominio</li>
+	</ul>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Sockets</h2>
+<ul>
+	<li>Una estructura de datos privada del kernel</li>
+	<li>Accesible a través de la API de Sockets</li>
+	<li>Sockets TCP</li>
+	<ul>
+		<li>Punto extremo de una conexión</li>
+		<li>Se comunica con un único socket remoto interlocutor</li>
+		<li>Transporte confiable</li>
+	</ul>
+	<li>Sockets UDP</li>
+	<ul>
+		<li>Pueden enviar a muchos destinos</li>
+		<li>Pueden recibir desde muchos otros orígenes</li>
+		<li>Transporte no confiable</li>
+	</ul>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Servidor TCP</h2>
+<ul>
+	<li>Servidor</li>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Cliente TCP</h2>
+<ul>
+	<li>Cliente</li>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
+
+
+
 <!------------------------------------------------------------------>
    </div>
 </div>

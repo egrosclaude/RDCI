@@ -1,8 +1,9 @@
 DEPS = src/reveal.header src/reveal.trailer
 
-all: intro
+all: intro aplic
 
 intro: Introducción.html
+aplic: Aplicación.html
 
 %.html: src/%.slides $(DEPS) 
 	util/macro $< > $*.html
