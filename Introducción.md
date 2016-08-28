@@ -212,6 +212,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 
 
+## Ancho de banda digital
+
 ## Comando traceroute
 
 
