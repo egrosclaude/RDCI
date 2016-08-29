@@ -10,3 +10,9 @@
 [submodule "externals/reveal-plugins"]
 	path = externals/reveal-plugins
 	url = git://github.com/rajgoel/reveal.js-plugins
+[submodule "externals/tangle"]
+	path = externals/tangle
+	url = git://github.com/worrydream/Tangle
+[submodule "externals/asciinema-player"]
+	path = externals/asciinema-player
+	url = git://github.com/asciinema/asciinema-player

@@ -9,20 +9,20 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/rdci.css" id="theme">
+		<link rel="stylesheet" href="externals/reveal/css/reveal.css">
+		<link rel="stylesheet" href="externals/css/theme/rdci.css" id="theme">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
 		<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
 		<meta name="theme-color" content="#ffffff">
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
- 		<link rel="stylesheet" type="text/css" href="reveal.js/plugin/asciinema/asciinema-player.css" />
+		<link rel="stylesheet" href="externals/reveal/lib/css/zenburn.css">
+ 		<link rel="stylesheet" type="text/css" href="externals/asciinema-player/asciinema-player.css" />
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'externals/reveal/css/print/pdf.css' : 'externals/reveal/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 		<!--[if lt IE 9]>
@@ -473,10 +473,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <!------------------------>
 <!----------------------------------------------------------------->
 
-<section data-state="retardos">
+<section data-state="retardos" data-transition="convex-in convex-out">
 <h2>Ancho de banda digital</h2>
 
-<script src="bw/jquery-3.1.0.js"></script>
+<script src="src/bw/jquery-3.1.0.js"></script>
 <script>
 	$(document).ready(function () {
 		
@@ -623,8 +623,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 	
 	.isp{
 		display: block;
-		width: 20%;
-		height: 50px;
+		width: 100%;
+		height: 40px;
 		font-size: 15px;
 		margin: auto;
 	}
@@ -633,8 +633,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 		display: inline-block;
 		width: 600px;
-		height: 50px;
-		margin-bottom: 30px;
+		height: 40px;
+		margin-bottom: 20px;
 		background-color: #ccc;
 		position: relative;
 		overflow-x: hidden;
@@ -647,8 +647,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 		display: inline-block;
 		width: 600px;
-		height: 50px;
-		margin-bottom: 30px;
+		height: 40px;
+		margin-bottom: 20px;
 		background-color: #ccc;
 		position: relative;
 		overflow-x: hidden;
@@ -661,7 +661,7 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 		
 		display: inline-block;
 		background-color: none;
-		height: 50px;
+		height: 40px;
 		position: relative;
 		text-align: center;
 		
@@ -671,7 +671,7 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 		
 		display: inline-block;
 		background-color: none;
-		height: 50px;
+		height: 40px;
 		position: relative;
 		text-align: center;
 		
@@ -689,7 +689,6 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 </style>
 </br>
 <div style="box-sizing: border-box; vertical-align: top; text-align: center;">
-
 	<span id="isp1" class="isp">1Mbps</span>
 	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal1"></div>
@@ -701,14 +700,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	
 	<div id="botonera">
-	
 		<button id="start">Iniciar</button>
-		
-		<button id="multadd">+</button>
-		<button id="multsub">-</button>
-		
+		<button id="multadd">+ 1Mbps</button>
+		<button id="multsub">- 1Mbps</button>
 		<input type="number" min="1" max="20" value="1" id="cantPaq" />
-	
 	</div>
 
 </div>
@@ -833,15 +828,15 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
    </div>
 </div>
 
-<link rel="stylesheet" href="Tangle/TangleKit/TangleKit.css" type="text/css">
-<script type="text/javascript" src="Tangle/Tangle.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/mootools.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/sprintf.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/BVTouchable.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/TangleKit.js"></script>
-<script src="reveal.js/lib/js/head.min.js"></script>
-<script src="reveal.js/js/reveal.js"></script>
-<script src="reveal.js/plugin/snap/snap.svg-min.js"></script>
+<link rel="stylesheet" href="externals/tangle/TangleKit/TangleKit.css" type="text/css">
+<script src="externals/tangle/Tangle.js"></script>
+<script src="externals/tangle/TangleKit/mootools.js"></script>
+<script src="externals/tangle/TangleKit/sprintf.js"></script>
+<script src="externals/tangle/TangleKit/BVTouchable.js"></script>
+<script src="externals/tangle/TangleKit/TangleKit.js"></script>
+<script src="externals/reveal/lib/js/head.min.js"></script>
+<script src="externals/reveal/js/reveal.js"></script>
+<script src="externals/reveal/plugin/snap/snap.svg-min.js"></script>
 
 <script>
 
@@ -1013,28 +1008,28 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 		// -------- Dependencies ---------
 		dependencies: [
-			{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+			{ src: 'externals/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'externals/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'externals/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'externals/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'externals/reveal/plugin/zoom-js/zoom.js', async: true },
 			// { src: 'plugin/notes/notes.js', async: true },
-			{ src: 'reveal.js/plugin/explain/explain.js', async: true },
-			{ src: 'reveal.js/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
-			{ src: 'reveal.js/plugin/function-plot/site/js/vendor/d3.js' },
-			{ src: 'reveal.js/plugin/function-plot/dist/function-plot.js' },
-			{ src: 'reveal.js/plugin/chart/Moment.js'},
-			{ src: 'reveal.js/plugin/chart/Chart.min.js'},
-			// { src: 'reveal.js/plugin/search/search.js', async: true},
-			{ src: 'reveal.js/plugin/chart/csv2chart.js'},
-			{ src: 'reveal.js/plugin/asciinema/asciinema-player.js' },
-			{ src: 'reveal.js/plugin/anything/anything.js' },
-			{ src: 'reveal.js/plugin/chalkboard/chalkboard.js' },
-			{ src: 'reveal.js/plugin/menu/menu.js' },
-			{ src: 'reveal.js/plugin/snap/snap.svg-min.js', async: true },
-			{ src: 'reveal.js/plugin/mathsvg/math.js', async: true },
-			//{ src: 'reveal.js/plugin/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			//{ src: 'reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals/explain/explain.js', async: true },
+			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
+			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/d3.js' },
+			//{ src: 'externals/reveal/plugin/function-plot/dist/function-plot.js' },
+			//{ src: 'externals/reveal/plugin/chart/Moment.js'},
+			//{ src: 'externals/reveal/plugin/chart/Chart.min.js'},
+			// { src: 'externals/reveal/plugin/search/search.js', async: true},
+			//{ src: 'externals/reveal-plugin/chart/csv2chart.js'},
+			{ src: 'externals/asciinema-player/asciinema-player.js' },
+			{ src: 'externals/reveal-plugins/anything/anything.js' },
+			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
+			{ src: 'externals/reveal-plugins/menu/menu.js' },
+			{ src: 'externals/reveal/plugins/snap/snap.svg-min.js', async: true },
+			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
 			// ... 
 		]
 	});

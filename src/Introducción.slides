@@ -437,10 +437,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <!------------------------>
 <!----------------------------------------------------------------->
 
-<section data-state="retardos">
+<section data-state="retardos" data-transition="convex-in convex-out">
 <h2>Ancho de banda digital</h2>
 
-<script src="bw/jquery-3.1.0.js"></script>
+<script src="src/bw/jquery-3.1.0.js"></script>
 <script>
 	$(document).ready(function () {
 		
@@ -587,8 +587,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 	
 	.isp{
 		display: block;
-		width: 20%;
-		height: 50px;
+		width: 100%;
+		height: 40px;
 		font-size: 15px;
 		margin: auto;
 	}
@@ -597,8 +597,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 		display: inline-block;
 		width: 600px;
-		height: 50px;
-		margin-bottom: 30px;
+		height: 40px;
+		margin-bottom: 20px;
 		background-color: #ccc;
 		position: relative;
 		overflow-x: hidden;
@@ -611,8 +611,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 		display: inline-block;
 		width: 600px;
-		height: 50px;
-		margin-bottom: 30px;
+		height: 40px;
+		margin-bottom: 20px;
 		background-color: #ccc;
 		position: relative;
 		overflow-x: hidden;
@@ -625,7 +625,7 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 		
 		display: inline-block;
 		background-color: none;
-		height: 50px;
+		height: 40px;
 		position: relative;
 		text-align: center;
 		
@@ -635,7 +635,7 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 		
 		display: inline-block;
 		background-color: none;
-		height: 50px;
+		height: 40px;
 		position: relative;
 		text-align: center;
 		
@@ -653,7 +653,6 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 </style>
 </br>
 <div style="box-sizing: border-box; vertical-align: top; text-align: center;">
-
 	<span id="isp1" class="isp">1Mbps</span>
 	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal1"></div>
@@ -665,14 +664,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	
 	<div id="botonera">
-	
 		<button id="start">Iniciar</button>
-		
-		<button id="multadd">+</button>
-		<button id="multsub">-</button>
-		
+		<button id="multadd">+ 1Mbps</button>
+		<button id="multsub">- 1Mbps</button>
 		<input type="number" min="1" max="20" value="1" id="cantPaq" />
-	
 	</div>
 
 </div>
