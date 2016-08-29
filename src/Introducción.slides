@@ -753,9 +753,9 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
 <h2>Preguntas</h2>
 <ol>
-<li>¿Qué aplicaciones de red tienen requerimientos de confiabilidad? ¿Qué aplicaciones <b>no necesitan</b> confiabilidad? ¿Qué aplicaciones de red tienen requerimientos de temporización?</li>
-<li>¿Cuál es el propósito de la multiplexión de enlaces? ¿Qué formas de multiplexión se utilizan en conmutación de circuitos, y qué diferencias existen entre ellas?</li>
-<li>¿Cuáles son las diferencias entre TDM y multiplexión estadística?</li>
+<li class="fragment">¿Qué aplicaciones de red tienen requerimientos de confiabilidad? ¿Qué aplicaciones <b>no necesitan</b> confiabilidad? ¿Qué aplicaciones de red tienen requerimientos de temporización?</li>
+<li class="fragment">¿Cuál es el propósito de la multiplexión de enlaces? ¿Qué formas de multiplexión se utilizan en conmutación de circuitos, y qué diferencias existen entre ellas?</li>
+<li class="fragment">¿Cuáles son las diferencias entre TDM y multiplexión estadística?</li>
 </ol>
 </section>
 
@@ -763,17 +763,17 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
 <h2>Preguntas</h2>
 <ol>
-<li>¿Cómo describiría el protocolo que rige la interacción entre un comerciante y su cliente?</li>
-<li>¿En qué aplicaciones, entornos o distancias, son recomendables los diferentes tipos de medios?</li>
-<li>Dos puntos muy alejados del planeta pueden conectarse mediante cables suboceánicos de fibra óptica o por vínculos satelitales. ¿Qué consecuencias tiene para la comunicación de datos una u otra elección?</li>
+<li class="fragment">¿Cómo describiría el protocolo que rige la interacción entre un comerciante y su cliente?</li>
+<li class="fragment">¿En qué aplicaciones, entornos o distancias, son recomendables los diferentes tipos de medios?</li>
+<li class="fragment">Dos puntos muy alejados del planeta pueden conectarse mediante cables suboceánicos de fibra óptica o por vínculos satelitales. ¿Qué consecuencias tiene para la comunicación de datos una u otra elección?</li>
 </ol>
 </section>
 
 <section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
 <h2>Preguntas</h2>
 <ol>
-<li>¿Por qué motivo se forman colas frente a las interfaces de salida de un nodo de conmutación? ¿Qué ocurre en caso extremo? Agregar más memoria a las colas, ¿es una solución?</li>
-<li>¿Qué analogía se puede señalar entre una interfaz que transmite y una persona que habla? En esta analogía, ¿a qué corresponden la velocidad de transmisión y la velocidad de propagación?</li>
+<li class="fragment">¿Por qué motivo se forman colas frente a las interfaces de salida de un nodo de conmutación? ¿Qué ocurre en caso extremo? Agregar más memoria a las colas, ¿es una solución?</li>
+<li class="fragment">¿Qué analogía se puede señalar entre una interfaz que transmite y una persona que habla? En esta analogía, ¿a qué corresponden la velocidad de transmisión y la velocidad de propagación?</li>
 </ol>
 </section>
 
