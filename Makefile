@@ -5,6 +5,7 @@ all: intro aplic
 intro: Introducción.html
 aplic: Aplicación.html
 snap: snap.html
+st: snaptest.html
 
 %.html: src/%.slides $(DEPS) 
 	util/macro $< > $*.html

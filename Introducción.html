@@ -420,24 +420,6 @@ El retardo de propagación es igual a, la distancia entre dos routers dividida p
 _Daiana Natalí Bonet Peinado_
 
 
-# Encolamiento y pérdida
-
-Cuando se realiza transferencia de datos, estos se dividen en paquetes que se transfieren de un nodo a otro hasta alcanzar su destino final (borde de la red) o morir en el camino (en el núcleo de la red). 
-
-En cada etapa del proceso de transmisión de los paquetes ocurren diversos retardos en el núcleo de la red:
-
-Cuando un paquete llega a un nodo (llamémosle nodo A), éste verifica el encabezado del paquete para saber a qué interfaz de salida debe redirigirlo. Si el link por el cual debe enviar el paquete está ocupado, el paquete se pone en el buffer de salida que le corresponda a ese link y se encola hasta ser dirigido. Este tiempo que tarda en verificar el encabezado se llama *retardo de procesamiento*. Además de verificar el encabezado, el tiempo de procesamiento también puede verse incrementado por la comprobación de posibles errores a nivel de bit que pueden producirse en el envío del paquete desde el nodo anterior al nodo A. 
-
-Cuando el paquete está en el buffer esperando a ser transmitido, sufre *retardo por encolamiento*, el cual es proporcional a la cantidad de paquetes que están delante de él (teniendo en cuenta que el buffer es atendido en orden de llegada –first come first serve-). Si no existen paquetes delante de él, el tiempo de retardo por encolamiento es cero; de lo contrario si hay muchos paquetes esperando a ser atendidos el tiempo de retardo por encolamiento es muy alto. 
-
-Cuando el nodo está listo para transmitir el paquete, debe tomar bit por bit e ir colocándolos en el link. Este tiempo que tarda en colocar los bits en el link se llama *retardo de transmisión*. Supongamos que la cantidad de bit del paquete a transmitir es L, y la tasa de transferencia de bit del link es de R bit por segundos, entonces el retardo de transmisión se calcula como L/R bit por segundos que indica el tiempo que requiere para colocar todos los bits del paquete en el link.
-
-Una vez que los bits del paquete están sobre el link, estos deben llegar al siguiente nodo. Durante el tiempo de viaje de un nodo a otro los bits sufren un tiempo de *retardo por propagación*. Este tiempo se ve afectado por el medio físico por el cual están siendo transmitidos los bits (fibra óptica, cables de pares trenzados de cobre, coaxial, etc.) y la longitud del camino entre los nodos.
-
-Pérdida de paquetes: 
-
-En el momento que el paquete debe ponerse en el buffer para ser transmitido al link, puede suceder que el buffer no tenga suficiente memoria para guardarlo, en tal caso la acción que se toma es eliminar el paquete, es decir el paquete se pierde en ese nodo y no es transmitido a ningún sitio.
-
 </aside>
 
 </section>
@@ -468,6 +450,24 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <img src="img/imagen.png" class="plain stretch">
 -->
 <aside data-markdown class="notes">
+
+Cuando se realiza transferencia de datos, estos se dividen en paquetes que se transfieren de un nodo a otro hasta alcanzar su destino final (borde de la red) o morir en el camino (en el núcleo de la red). 
+
+En cada etapa del proceso de transmisión de los paquetes ocurren diversos retardos en el núcleo de la red:
+
+Cuando un paquete llega a un nodo (llamémosle nodo A), éste verifica el encabezado del paquete para saber a qué interfaz de salida debe redirigirlo. Si el link por el cual debe enviar el paquete está ocupado, el paquete se pone en el buffer de salida que le corresponda a ese link y se encola hasta ser dirigido. Este tiempo que tarda en verificar el encabezado se llama *retardo de procesamiento*. Además de verificar el encabezado, el tiempo de procesamiento también puede verse incrementado por la comprobación de posibles errores a nivel de bit que pueden producirse en el envío del paquete desde el nodo anterior al nodo A. 
+
+Cuando el paquete está en el buffer esperando a ser transmitido, sufre *retardo por encolamiento*, el cual es proporcional a la cantidad de paquetes que están delante de él (teniendo en cuenta que el buffer es atendido en orden de llegada –first come first serve-). Si no existen paquetes delante de él, el tiempo de retardo por encolamiento es cero; de lo contrario si hay muchos paquetes esperando a ser atendidos el tiempo de retardo por encolamiento es muy alto. 
+
+Cuando el nodo está listo para transmitir el paquete, debe tomar bit por bit e ir colocándolos en el link. Este tiempo que tarda en colocar los bits en el link se llama *retardo de transmisión*. Supongamos que la cantidad de bit del paquete a transmitir es L, y la tasa de transferencia de bit del link es de R bit por segundos, entonces el retardo de transmisión se calcula como L/R bit por segundos que indica el tiempo que requiere para colocar todos los bits del paquete en el link.
+
+Una vez que los bits del paquete están sobre el enlace, estos deben llegar al siguiente nodo. Durante el tiempo de viaje de un nodo a otro los bits sufren un tiempo de *retardo por propagación*. Este tiempo se ve afectado por el medio físico por el cual están siendo transmitidos los bits (fibra óptica, cables de pares trenzados de cobre, coaxial, etc.) y la longitud del camino entre los nodos.
+
+Pérdida de paquetes: 
+
+En el momento que el paquete debe ponerse en el buffer para ser transmitido al link, puede suceder que el buffer no tenga suficiente memoria para guardarlo, en tal caso la acción que se toma es eliminar el paquete, es decir el paquete se pierde en ese nodo y no es transmitido a ningún sitio.
+
+_Martín Bermúdez_
 </aside>
 </section>
 <!------------------------>
@@ -688,16 +688,16 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 
 </style>
 </br>
-<div style="box-sizing: border-box; vertical-align: top; text-align: center;">
+<div style="box-sizing: border-box; vertical-align: top; text-align: center;" class="stretch"> 
 	<span id="isp1" class="isp">1Mbps</span>
-	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal1"></div>
-	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 
 	<span id="isp2" class="isp">1Mbps</span>
-	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal2"></div>
-	<img src="img/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	
 	<div id="botonera">
 		<button id="start">Iniciar</button>
@@ -705,11 +705,9 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 		<button id="multsub">- 1Mbps</button>
 		<input type="number" min="1" max="20" value="1" id="cantPaq" /><span style="font-size: 15px;"> paquetes</span>
 	</div>
-
+</br>
+<small><i>Animación por Iván Eidelstein, Jorge L. Beroisa</i></small>
 </div>
-</br>
-</br>
-<p><small><i>Animación por Iván Eidelstein, Jorge L. Beroisa</i></small></p>
 </section>
 <!----------------------------------------------------------------->
 <!------------------------>
@@ -836,7 +834,8 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 <script src="externals/tangle/TangleKit/TangleKit.js"></script>
 <script src="externals/reveal/lib/js/head.min.js"></script>
 <script src="externals/reveal/js/reveal.js"></script>
-<script src="externals/reveal/plugin/snap/snap.svg-min.js"></script>
+<script src="externals/svg/dist/svg.min.js"></script>
+<script src="externals/snap/snap.svg-min.js"></script>
 
 <script>
 
@@ -957,13 +956,19 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 				initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) }) },
 			{className: "asciicast",
                                  defaults: { theme: 'monokai', fontSize: '15px' },
-                                 initialize: (function(container, options) {
-                                         asciinema.player.js.CreatePlayer(container, options.URL, options);
-                                 })
-                         },
-			 {className: "snapsvg",
-				initialize: (function(container, options) {
-					run(container, options);
+                                 initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
+                        },
+			{className: "snapsvg",
+				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
+			},
+			{className: "svganimate", 
+				defaults: {width:600, height:400}, 
+				initialize: (function(container, options){ 
+					if(options && options.src) {
+						container.innerHTML = SVG(options.src);
+					} else { 
+						container.innerHTML = SVG(container); 
+					}
 				})
 			},
 			{className: "anything",  
@@ -1026,10 +1031,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 			{ src: 'externals/reveal-plugins/anything/anything.js' },
 			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
 			{ src: 'externals/reveal-plugins/menu/menu.js' },
-			{ src: 'externals/reveal/plugins/snap/snap.svg-min.js', async: true },
 			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
 			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
 			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals//snap/snap.svg-min.js', async: true },
 			// ... 
 		]
 	});

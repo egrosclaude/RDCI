@@ -9,20 +9,20 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/rdci.css" id="theme">
+		<link rel="stylesheet" href="externals/reveal/css/reveal.css">
+		<link rel="stylesheet" href="externals/css/theme/rdci.css" id="theme">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
 		<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
 		<meta name="theme-color" content="#ffffff">
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
- 		<link rel="stylesheet" type="text/css" href="reveal.js/plugin/asciinema/asciinema-player.css" />
+		<link rel="stylesheet" href="externals/reveal/lib/css/zenburn.css">
+ 		<link rel="stylesheet" type="text/css" href="externals/asciinema-player/asciinema-player.css" />
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'externals/reveal/css/print/pdf.css' : 'externals/reveal/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 		<!--[if lt IE 9]>
@@ -52,9 +52,48 @@
 <section data-transition="slide-in slide-out">
 <h2>It's a snap!</h2>
 <div class="double stretch">
-	<div id="alfa" class="snapsvg" style="background-color: #aabbcc; border-style: solid; border-color: #aabbcc;" width="100%">
-		<svg viewBox="0 0 200 200" width="200" height="200"></svg> 
-		<script src="src/run1.js"></script>
+  <div id="alfa" class="snapsvg" style="background-color: #aabbcc; border-style: solid; border-color: #aabbcc;" width="100%">
+  <svg viewBox="0 0 200 200" width="200" height="200"></svg> 
+<!--
+{
+   "initialize" : "function (container){
+	var svg = Snap('#alfa svg');
+	var box = function (x,y,t,f) {
+		var r = svg.rect(x,y,0,0,1);
+		var t1 = svg.text(x,y,t);
+		t1.attr({'font-size': f, 'font-family': 'sans-serif'});
+		var b = t1.getBBox();
+		r.attr({y: b.y, width: b.w, height: b.h, fill: '#fff'});
+		return svg.g(r,t1);
+	}
+	var rect1 = svg.rect(20, 20, 50, 60, 2); rect1.drag();
+	rect2 = [ box(20,30,'Prueba 1',5), box(10,50,'Prueba 2',15)];
+	rect2[0].drag(); rect2[1].drag(); var t0 = 0; var t1 = 0;
+	rect1.attr({ fill: '#BADA55' });
+	var a1 = new Audio('audio/bounce.wav');
+	var a2 = new Audio('audio/blop.wav');
+	a1.onended=function(){delete a1};
+	a2.onended=function(){delete a2};
+	var o1 = {opacity: '0.2'};
+	var o2 = {opacity: '0.8'};
+	var c1 = { fill: '#aaa', stroke: '#000', strokeWidth: 0.2, transform: 'r0, 20, 20'};
+	var c2 = { fill: '#222', stroke: '#afa', //strokeWidth: 1, transform: 'r-90, 20, 20'}; 
+	c2 = {transform: 'r-90, 20, 20'}; 
+	rect2[0].hover(function(){
+		if(t0) { a1.play() } else { a2.play()}
+		rect1.animate( (t0) ?  o1: o2, 500, mina.linear);
+		this.animate( (t0) ? c1 : c2, 500, mina.bounce);
+		t0 = !t0;
+	})
+	rect2[1].hover(function(){
+		if(t1) { a1.play() } else { a2.play()}
+		rect1.animate( (t1) ?  c2: c1, 500, mina.linear);
+		this.animate( (t1) ? o2 : o1, 500, mina.bounce);
+		t1= !t1;
+	})
+   }"
+}
+-->
 	</div>
 	<div>
 	<ul>
@@ -72,12 +111,68 @@
 
 <section data-background="#3c53b5" data-background-transition="zoom">
 <h2>Preguntas</h2>
+  <div id="alfa2" class="snapsvg" style="background-color: #aabbcc; border-style: solid; border-color: #aabbcc;" width="100%">
+	<svg viewbox="0 0 100 100"></svg> 
 <!--
-	<div id="alfa2" class="snapsvg" style="background-color: #aabbcc; border-style: solid; border-color: #aabbcc;" width="100%">
-		<svg viewbox="0 0 100 100"></svg> 
-		<script src="src/run2.js"></script>
-	</div>
+{
+   "initialize" : "function (container){
+	var svg = Snap('#alfa2 svg');
+	var box = function (x,y,t,f) {
+		var r = svg.rect(x,y,0,0,1);
+		var t1 = svg.text(x,y,t);
+		t1.attr({'font-size': f, 'font-family': 'sans-serif'});
+		var b = t1.getBBox();
+		r.attr({y: b.y, width: b.w, height: b.h, fill: '#fff'});
+		return svg.g(r,t1);
+	}
+	var rect1 = svg.rect(20, 20, 50, 60, 2);
+	rect1.drag();
+	//var rect2 = svg.rect(20, 30, 10, 10, 2);
+	//b = box(10, 20, 'Prueba');
+	//b.attr({'font-size': 5, 'font-family': 'sans-serif'});
+	//b.drag();
+
+	rect2 = [ box(20,30,'Prueba 1',5), box(10,50,'Prueba 2',15)];
+	rect2[0].drag();
+	rect2[1].drag();
+
+	var t0 = 0;
+	var t1 = 0;
+
+	rect1.attr({ fill: '#BADA55' });
+	var a1 = new Audio('audio/bounce.wav');
+	var a2 = new Audio('audio/blop.wav');
+	a1.onended=function(){delete a1};
+	a2.onended=function(){delete a2};
+
+	var o1 = {opacity: '0.2'};
+	var o2 = {opacity: '0.8'};
+
+	var c1 = { fill: '#aaa', stroke: '#000', 
+			strokeWidth: 0.2, 
+			transform: 'r0, 20, 20'};
+	var c2 = { fill: '#222', stroke: '#afa', 
+			//strokeWidth: 1, 
+			transform: 'r-90, 20, 20'}; 
+
+	//c1 = {transform: 'r0, 20, 20'};
+	c2 = {transform: 'r-90, 20, 20'}; 
+	rect2[0].hover(function(){
+		if(t0) { a1.play() } else { a2.play()}
+		rect1.animate( (t0) ?  o1: o2, 500, mina.linear);
+		this.animate( (t0) ? c1 : c2, 500, mina.bounce);
+		t0 = !t0;
+	})
+	rect2[1].hover(function(){
+		if(t1) { a1.play() } else { a2.play()}
+		rect1.animate( (t1) ?  c2: c1, 500, mina.linear);
+		this.animate( (t1) ? o2 : o1, 500, mina.bounce);
+		t1= !t1;
+	})
+   }"
+}
 -->
+  </div>
 </section>
 
 
@@ -85,15 +180,16 @@
    </div>
 </div>
 
-<link rel="stylesheet" href="Tangle/TangleKit/TangleKit.css" type="text/css">
-<script type="text/javascript" src="Tangle/Tangle.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/mootools.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/sprintf.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/BVTouchable.js"></script>
-<script type="text/javascript" src="Tangle/TangleKit/TangleKit.js"></script>
-<script src="reveal.js/lib/js/head.min.js"></script>
-<script src="reveal.js/js/reveal.js"></script>
-<script src="reveal.js/plugin/snap/snap.svg-min.js"></script>
+<link rel="stylesheet" href="externals/tangle/TangleKit/TangleKit.css" type="text/css">
+<script src="externals/tangle/Tangle.js"></script>
+<script src="externals/tangle/TangleKit/mootools.js"></script>
+<script src="externals/tangle/TangleKit/sprintf.js"></script>
+<script src="externals/tangle/TangleKit/BVTouchable.js"></script>
+<script src="externals/tangle/TangleKit/TangleKit.js"></script>
+<script src="externals/reveal/lib/js/head.min.js"></script>
+<script src="externals/reveal/js/reveal.js"></script>
+<script src="externals/svg/dist/svg.min.js"></script>
+<script src="externals/snap/snap.svg-min.js"></script>
 
 <script>
 
@@ -214,14 +310,10 @@
 				initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) }) },
 			{className: "asciicast",
                                  defaults: { theme: 'monokai', fontSize: '15px' },
-                                 initialize: (function(container, options) {
-                                         asciinema.player.js.CreatePlayer(container, options.URL, options);
-                                 })
-                         },
-			 {className: "snapsvg",
-				initialize: (function(container, options) {
-					run(container, options);
-				})
+                                 initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
+                        },
+			{className: "snapsvg",
+				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },
@@ -265,28 +357,28 @@
 
 		// -------- Dependencies ---------
 		dependencies: [
-			{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+			{ src: 'externals/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'externals/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'externals/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'externals/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'externals/reveal/plugin/zoom-js/zoom.js', async: true },
 			// { src: 'plugin/notes/notes.js', async: true },
-			{ src: 'reveal.js/plugin/explain/explain.js', async: true },
-			{ src: 'reveal.js/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
-			{ src: 'reveal.js/plugin/function-plot/site/js/vendor/d3.js' },
-			{ src: 'reveal.js/plugin/function-plot/dist/function-plot.js' },
-			{ src: 'reveal.js/plugin/chart/Moment.js'},
-			{ src: 'reveal.js/plugin/chart/Chart.min.js'},
-			// { src: 'reveal.js/plugin/search/search.js', async: true},
-			{ src: 'reveal.js/plugin/chart/csv2chart.js'},
-			{ src: 'reveal.js/plugin/asciinema/asciinema-player.js' },
-			{ src: 'reveal.js/plugin/anything/anything.js' },
-			{ src: 'reveal.js/plugin/chalkboard/chalkboard.js' },
-			{ src: 'reveal.js/plugin/menu/menu.js' },
-			{ src: 'reveal.js/plugin/snap/snap.svg-min.js', async: true },
-			{ src: 'reveal.js/plugin/mathsvg/math.js', async: true },
-			//{ src: 'reveal.js/plugin/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			//{ src: 'reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals/explain/explain.js', async: true },
+			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
+			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/d3.js' },
+			//{ src: 'externals/reveal/plugin/function-plot/dist/function-plot.js' },
+			//{ src: 'externals/reveal/plugin/chart/Moment.js'},
+			//{ src: 'externals/reveal/plugin/chart/Chart.min.js'},
+			// { src: 'externals/reveal/plugin/search/search.js', async: true},
+			//{ src: 'externals/reveal-plugin/chart/csv2chart.js'},
+			{ src: 'externals/asciinema-player/asciinema-player.js' },
+			{ src: 'externals/reveal-plugins/anything/anything.js' },
+			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
+			{ src: 'externals/reveal-plugins/menu/menu.js' },
+			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals//snap/snap.svg-min.js', async: true },
 			// ... 
 		]
 	});

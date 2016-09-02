@@ -1,84 +1,18 @@
-<!-- INCLUDE src/reveal.header -->
 
-<!------------------------>
-<section data-background="img/background01.jpg" data-transition="slide-in slide-out">
-<div class="frosted">
-	<h3>Redes de Computadoras I</h3>
-	<h2>Introducción</h2>
-</div>
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Componentes de las redes</h2>
-<ul>
-	<div class="fragment color1">
-	<li>Borde</li>
-	<ul>
-		<li>Computadoras de escritorio, portátiles, celulares, sensores, servidores</li>
-		<li><b>Sistemas finales, sistemas extremos o hosts</b></li>
-	</ul>
-	</div>
-	<div class="fragment color2">
-	<li>Núcleo</li>
-	<ul>
-		<li>Routers, switches</li>
-		<li>En general, <b>nodos de conmutación</b></li>
-	</ul>
-	</div>
-	<div class="fragment color3">
-	<li>Vínculos o enlaces</li>
-	<ul>
-		<li>Propios (LAN) o contratados (MAN, WAN)</li>
-	</ul>
-	</div>
-</ul>
-<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
-<aside data-markdown class="notes">
-</aside>
-</section>
+## Introducción
 
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Aplicaciones distribuidas</h2>
-<ul>
-	<li>Las aplicaciones corren en los sistemas finales</li>
-	<ul>
-		<li>WWW, E-mail, mensajería instantánea, telefonía, juegos en red, archivos compartidos, videoconferencia</li>
-		<li class="fragment">Tienen diferentes requerimientos de ancho de banda, de confiabilidad, de temporización</li>
-	   <span class="fragment">
-		<li>La red les ofrece dos tipos básicos de servicio de transporte</li>
-		<ul>
-			<li class="color1">Orientado a conexión, confiable (<b>TCP</b>)</li>
-			<li class="color2">No orientado a conexión, no confiable (<b>UDP</b>)</li>
-		</ul>
-	   </span>
-	</ul>
-</ul>
-<!-- <img src="img/imagen.png" class="plain stretch"> -->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Conmutación de circuitos</h2>
-<ul>
-	<li>Telefonía tradicional</li>
-	<li>Antes de empezar a transmitir datos:</li>
-	<ul>
-		<li>La red establece una conexión dedicada, de extremo a extremo</li>
-		<li>Reserva ancho de banda de cada enlace a lo largo de la conexión</li>
-		<li>El ancho de banda reservado se desperdicia mientras los sistemas finales no transmiten</li>
-	</ul>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
+
+## Componentes de las redes
+
+
+
+## Aplicaciones distribuidas
+
+
+
+## Conmutación de circuitos
+
 Existen dos maneras para llevar a cabo la transmisión de datos a través de una red de enlaces y conmutadores (switches y/o routers). A continuación los describimos:
 				
 
@@ -109,25 +43,10 @@ A diferencia de FDM, en TDM cada circuito ocupa el total del ancho de banda del 
 _Ana Candelaria Alvarez, Nahuel Mamani_
 
 
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Conmutación de paquetes</h2>
-<ul>
-	<li>El flujo de información se descompone en paquetes</li>
-	<li>Cada paquete es transportado separadamente</li>
-	<li><b>Store and Forward</b>: cada paquete se almacena en el nodo de conmutación antes de reenviarlo</li>
-	<ul>
-		<li>Se usa información de destino que viaja junto con el paquete</li>
-		<li>Cada nodo de conmutación reenvía el paquete desde el enlace por donde llega, al siguiente</li>
-	</ul>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
+
+
+## Conmutación de paquetes
+
 **Conmutación por paquetes**
 
 Este tipo de conmutación se aplica en las redes actuales, y su característica principal es que **_los mensajes transmitidos entre dos nodos son divididos en porciones más pequeñas de datos que se denominan paquetes.**_ Cada paquete se conforma por los datos a enviar y por la información de control.
@@ -146,29 +65,10 @@ Por otra parte, quienes argumentan a favor de la _conmutación por paquetes_ afi
 
 
 _Ana Candelaria Alvarez, Nahuel Mamani_
-</aside>
-</section>
-<!------------------------>
 
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Protocolos</h2>
-<ul>
-	<li>Definen:</li>
-	<ul>
-		<li>Formato y orden de los mensajes que serán intercambiados entre las entidades que se comunican</li>
-		<li>Acciones a tomar ante la recepción de un mensaje u otro evento</li>
-	</ul>
-   <span class="fragment">
-	<li>Un autómata para cada entidad</li>
-	<li>Transiciones disparadas por mensajes u otros eventos</li>
-   </span>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
+## Protocolos
+
 ##Protocolos
 
 Los protocolos definen el formato y el orden de los mensajes intercambiados entre dos o más entidades, como así también las acciones llevadas a cabo a partir de la emisión o recepción de un mensaje u otro evento. 
@@ -186,41 +86,11 @@ No respetar un protocolo puede hacer muy difícil la comunicación. Todas las ac
 En general, Internet y las redes de computadoras hacen un uso extensivo de distintos protocolos para llevar a cabo distintas tareas de comunicación. 
 
 _Nahir Saddi-Nicolás Panozo-Sebastián López Mesa-Jordan Fingerhut_
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Medios físicos</h2>
-	<div class="double">
-	<div>
-	Medios guiados<hr>
-	<ul>
-	<li>Cobre</li>
-		<ul>
-		<li>Pares trenzados, coaxial</li>
-		</ul>
-	<li>Fibra óptica</li>
-	</ul>
-	</div>
-	<p></p>
-	<div>
-	Medios no guiados<hr>
-	<ul>
-	<li>Inalámbricos o <b>Wireless</b></li>
-		<ul>
-		<li>Bluetooth</li>
-		<li>WiFi</li>
-		<li>Microondas terrestres</li>
-		<li>Satélites</li>
-		</ul>
-	</ul>
-	</div>
-	</div>
 
-<!-- <img src="img/imagen.png" class="plain stretch"> -->
-<aside data-markdown class="notes">
-## Medios Físicos
+
+## Medios físicos
+
+Medios Físicos## Medios Físicos
 
 Para hacer posible la comunicación entre diferentes terminales, es necesario un canal que los comunique. Este canal es llamado *medio físico* y puede ser de dos tipos:
 
@@ -273,84 +143,18 @@ Bluetooth se divide en 3 clases, dependiendo de su alcance: Clase 1 (aproximadam
 
 
 _Jonathan Esteban, Nadir Jaramillo_
-</aside>
-</section>
-<!------------------------>
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Redes de acceso</h2>
-<ul>
-	<li>Medios e interfaces</li>
-	<ul>
-	<li>La interfaz es el dispositivo de un sistema, final o intermedio, donde se conecta a un medio</li>
-	<li>El sistema intercambia bits con el medio a través de la interfaz</li>
-	</ul>
-   <span class="fragment">
-	<li>Red local &rarr; Ethernet</li>
-	<li>Proveedores de servicio de Internet, <b>ISPs</b></li>
-	<ul>
-	<li>Dial-up, ADSL</li>
-	<li>Proveedores de cable</li>
-	</ul>
-   </span>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Internet, red de redes</h2>
-<ul>
-	<li>Jerarquía débil de redes</li>
-	<li>IP (<b>Internet Protocol</b>) las atraviesa a todas</li>
-   <span class="fragment">
-	<li>Niveles de ISPs o <b>tiers</b></li>
-	<ul>
-	<li>Tier 1, centro de la Internet</li>
-	<ul>
-		<li>Vínculos intercontinentales</li>
-	</ul>
-	<li>Un ISP de tier $n$ ofrece conexión a los de tier $n+1$</li>
-	<li>ISP regionales o locales conectan a usuarios finales</li>
-	</ul>
-   </span>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Encolamiento y pérdida</h2>
-<ul>
-	<li>En cada nodo de conmutación</li>
-	<ul>
-		<li class="fragment">Los paquetes se encolan frente a la interfaz de salida</li>
-		<li class="fragment">Sufren <b>retardo de encolamiento</b> proporcional a la longitud de la cola</li>
-		<li class="fragment">Puede existir pérdida (<b>loss</b>) si no hay espacio de buffering en la cola</li>
-	</ul>
-   <span class="fragment">
-	<li>Otros factores de retardo</li>
-	<ul>
-	<li><b>De procesamiento</b></li>
-	<li><b>De transmisión</b></li>
-	<li><b>De propagación</b></li>
-   </span>
-	</ul>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
+## Redes de acceso
+
+
+
+## Internet, red de redes
+
+
+
+## Encolamiento y pérdida
+
 ##**Encolamiento y pérdida**
 
 La transferencia de paquetes entre dos nodos de una red está dado por dos instancias precisas: el **envìo de paquetes** en el nodo emisor y la **recepción de paquetes** en el nodo receptor.
@@ -384,36 +188,10 @@ El retardo de propagación es igual a, la distancia entre dos routers dividida p
 _Daiana Natalí Bonet Peinado_
 
 
-</aside>
 
-</section>
-<!------------------------>
-<!------------------------>
-<section>
-<section data-transition="slide-in slide-out">
-<h2>Retardos</h2>
-<ul>
-	<li>Críticos para la performance de las aplicaciones</li>
-	<li>Se suman para dar el retardo total de un enlace</li>
-   <div class="fragment color1">
-	<li>Retardo de transmisión</li>
-	<ul>
-		<li>Depende de la cantidad de bits y de la interfaz</li>
-		<li>$t_{transm} = L / v_{transm}$</li>
-	</ul>
-   </div>
-   <div class="fragment color2">
-	<li>Retardo de propagación</li>
-	<ul>
-		<li>Depende de la longitud del vínculo y de $c$</li>
-		<li>$t_{prop} = D / v_{prop} = D / c$</li>
-	</ul>
-   </div>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
+
+## Retardos
+
 
 Cuando se realiza transferencia de datos, estos se dividen en paquetes que se transfieren de un nodo a otro hasta alcanzar su destino final (borde de la red) o morir en el camino (en el núcleo de la red). 
 
@@ -432,358 +210,28 @@ Pérdida de paquetes:
 En el momento que el paquete debe ponerse en el buffer para ser transmitido al link, puede suceder que el buffer no tenga suficiente memoria para guardarlo, en tal caso la acción que se toma es eliminar el paquete, es decir el paquete se pierde en ese nodo y no es transmitido a ningún sitio.
 
 _Martín Bermúdez_
-</aside>
-</section>
-<!------------------------>
-<!----------------------------------------------------------------->
-
-<section data-state="retardos" data-transition="convex-in convex-out">
-<h2>Ancho de banda digital</h2>
-
-<script src="src/bw/jquery-3.1.0.js"></script>
-<script>
-	$(document).ready(function () {
-		
-		var start = false;
-		var mult = 1;
-		
-		var num1 = 0;
-		var num2 = 0;
-		
-		var colr = false;
-		
-		var fin = 0;
-		
-		var isps = ["1Mbps","2Mbps","3Mbps","4Mbps"];
-		
-		function animar(index1, index2) {
-		
-			w1 = ($("#canal1").width() / 10);
-			w2 = ($("#canal2").width() / (10 * mult));
-			
-			bkg = "";
-			
-			tnum1 = "";
-			tnum2 = "";
-			
-			b1 = "background-color:none;-webkit-box-shadow:none;box-shadow:none;";
-			b2 = "background-color:none;-webkit-box-shadow:none;box-shadow:none;";
-			
-			if(index1 > 0){
-				tnum1 = num1;
-				b1 = "background-color:red;-webkit-box-shadow: 0 0 0 1px #ccc;box-shadow: 0 0 0 1px #ccc;";
-			}
-		
-			$("#canal1").prepend("<div class='pq1' style='width:"+w1+"px;"+b1+"'>"+tnum1+"</div>");
-			index1--;
-			num1++;
-			
-			for(i = 0; i < mult; i++){
-				
-				if(index2 > 0){
-					tnum2 = num2;
-					b2 = "background-color:green;-webkit-box-shadow: 0 0 0 1px #ccc;box-shadow: 0 0 0 1px #ccc;";
-				}
-				else {
-					b2 = "background-color:none;-webkit-box-shadow:none;box-shadow:none;";
-					tnum2 = "";
-				}
-			
-				$("#canal2").prepend("<div class='pq2' style='width:"+w2+"px;"+b2+"'>"+tnum2+"</div>");
-				index2--;
-				num2++;
-				colr = false;
-				bkg = "";
-			}
-		
-			if(start && num1 < fin){
-	
-				setTimeout(function () {
-					
-					animar(index1, index2);
-					
-				},500);
-			
-			}
-			else{
-				$("#start").removeAttr("disabled");
-				$("#multadd").removeAttr("disabled");
-				$("#multsub").removeAttr("disabled");
-				start = false;
-			}
-			
-		}
-		
-		$("#start").click(function () {
-			
-			if(!start){
-			
-				$(this).attr("disabled","true");
-				$("#multadd").attr("disabled","true");
-				$("#multsub").attr("disabled","true");
-			
-				start = true;			
-			
-				$("#canal1").html("");
-				$("#canal2").html("");		
-			
-				num1 = 0;
-				num2 = 0;
-			
-				cant = $("#cantPaq").val();
-				
-				fin = 10 + (cant * 1);
-			
-				animar(cant,cant);
-				
-			}
-			
-		});
-		
-		$("#multadd").click(function () {			
-			
-			if(mult < 4){
-				mult++;		
-			}
-			
-			$("#isp2").html(isps[mult - 1]);
-			
-		});
-		
-		$("#multsub").click(function () {
-			
-			if(mult > 1){
-				mult--;			
-			}
-			
-			$("#isp2").html(isps[mult - 1]);
-			
-		});
-		
-		$("#colorear").click(function () {
-		
-			colr = true;
-			
-		});
-		
-	});
-</script>
-
-<!--
-
-	*{
-		 box-sizing: border-box;
-		 vertical-align: top;
-	}
-
-	body{
-		width: 100%;
-		margin: 0px;
-		padding: 30px;
-		text-align: center;
-	}
--->
-<style type="text/css">
-	
-	.isp{
-		display: block;
-		width: 100%;
-		height: 40px;
-		font-size: 15px;
-		margin: auto;
-	}
-
-	#canal1{
-
-		display: inline-block;
-		width: 600px;
-		height: 40px;
-		margin-bottom: 12px;
-		background-color: #ccc;
-		position: relative;
-		overflow-x: hidden;
-		overflow-y: hidden;
-		text-align: left;
-	
-	}
-	
-	#canal2{
-
-		display: inline-block;
-		width: 600px;
-		height: 40px;
-		margin-bottom: 12px;
-		background-color: #ccc;
-		position: relative;
-		overflow-x: hidden;
-		overflow-y: hidden;
-		text-align: left;
-	
-	}
-	
-	.pq1{
-		
-		display: inline-block;
-		background-color: none;
-		height: 40px;
-		position: relative;
-		text-align: center;
-		
-	}
-	
-	.pq2{
-		
-		display: inline-block;
-		background-color: none;
-		height: 40px;
-		position: relative;
-		text-align: center;
-		
-	}
-	
-	.gabinete{
-		display: inline-block;
-		width: 8%;
-	}
-	
-	#botonera{
-		display: block;
-	}
-
-</style>
-</br>
-<div style="box-sizing: border-box; vertical-align: top; text-align: center;" class="stretch"> 
-	<span id="isp1" class="isp">1Mbps</span>
-	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
-	<div id="canal1"></div>
-	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
-
-	<span id="isp2" class="isp">1Mbps</span>
-	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
-	<div id="canal2"></div>
-	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
-	
-	<div id="botonera">
-		<button id="start">Iniciar</button>
-		<button id="multadd">+ 1Mbps</button>
-		<button id="multsub">- 1Mbps</button>
-		<input type="number" min="1" max="20" value="1" id="cantPaq" /><span style="font-size: 15px;"> paquetes</span>
-	</div>
-</br>
-<small><i>Animación por Iván Eidelstein, Jorge L. Beroisa</i></small>
-</div>
-</section>
-<!----------------------------------------------------------------->
-<!------------------------>
-<section data-transition="convex-in slide-out">
-<h2>Comando traceroute</h2>
- <div class="asciicast"><!-- { "URL": "src/traceroute.json" } --></div>
-<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-</section>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Capas de protocolos</h2>
-<ul>
-	<li>Pila o <b>stack</b> de protocolos</li>
-	<li>Modelo de capas ISO/OSI</li>
-   <div class="fragment postit">
-	<li>Modelo de capas de Internet</li>
-	<ul>
-		<li>Aplicación</li>
-		<li>Transporte</li>
-		<li>Red</li>
-		<li>Enlace</li>
-		<li>Física</li>
-	</ul>
-   </div>
-   <span class="fragment">
-	<li>Cada capa es cliente de la inferior</li>
-   </span>
-</ul>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Encapsulamiento</h2>
-<div class="double">
-<div>
-<ul>
-	<li>Unidad de datos de protocolo o <b>PDU</b> para cada nivel</li>
-	   <span class="fragment">
-		<li>Cada capa:</li>
-		<ul>
-			<li>Encapsula la PDU recibida con su <b>cabecera</b> creando una PDU de su nivel</li>
-			<li>Entrega su PDU a la siguiente capa</li>
-		</ul>
-	   </span>
-</ul>
-</div>
-<div>
-   <div class="fragment postit">
-	<table>
-		<tr><th>Capa</th><th>PDU</th></tr>
-		<tr><td>Aplicación</td><td>Mensaje</td></tr>
-		<tr><td>Transporte</td><td>Segmento</td></tr>
-		<tr><td>Red</td><td>Paquete o datagrama</td></tr>
-		<tr><td>Enlace</td><td>Trama, marco o <b>frame</b></td></tr>
-	</table>
-   </div>
-</div>
-</div>
-<!--
-<img src="img/imagen.png" class="plain stretch">
--->
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-
-	
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
-<h2>Preguntas</h2>
-<ol>
-<li class="fragment">¿Qué aplicaciones de red tienen requerimientos de confiabilidad? ¿Qué aplicaciones <b>no necesitan</b> confiabilidad? ¿Qué aplicaciones de red tienen requerimientos de temporización?</li>
-<li class="fragment">¿Cuál es el propósito de la multiplexión de enlaces? ¿Qué formas de multiplexión se utilizan en conmutación de circuitos, y qué diferencias existen entre ellas?</li>
-<li class="fragment">¿Cuáles son las diferencias entre TDM y multiplexión estadística?</li>
-</ol>
-</section>
 
 
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
-<h2>Preguntas</h2>
-<ol>
-<li class="fragment">¿Cómo describiría el protocolo que rige la interacción entre un comerciante y su cliente?</li>
-<li class="fragment">¿En qué aplicaciones, entornos o distancias, son recomendables los diferentes tipos de medios?</li>
-<li class="fragment">Dos puntos muy alejados del planeta pueden conectarse mediante cables suboceánicos de fibra óptica o por vínculos satelitales. ¿Qué consecuencias tiene para la comunicación de datos una u otra elección?</li>
-</ol>
-</section>
+## Ancho de banda digital
 
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
-<h2>Preguntas</h2>
-<ol>
-<li class="fragment">¿Por qué motivo se forman colas frente a las interfaces de salida de un nodo de conmutación? ¿Qué ocurre en caso extremo? Agregar más memoria a las colas, ¿es una solución?</li>
-<li class="fragment">¿Qué analogía se puede señalar entre una interfaz que transmite y una persona que habla? En esta analogía, ¿a qué corresponden la velocidad de transmisión y la velocidad de propagación?</li>
-</ol>
-</section>
+## Comando traceroute
 
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Referencias</h2>
-<ul>
-	<li><b>Redes de Computadores, Un Enfoque Descendente</b>, Kurose, Ross, cap. 1</li>
-</ul>
-<aside data-markdown class="notes">
-</aside>
-</section>
-<!------------------------>
-<!-- INCLUDE src/reveal.trailer -->
+
+## Capas de protocolos
+
+
+
+## Encapsulamiento
+
+
+
+## Preguntas
+
+## Preguntas
+
+## Preguntas
+
+## Referencias
+
+
