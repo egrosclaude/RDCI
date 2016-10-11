@@ -25,6 +25,9 @@
 		transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 		// ----------------------------------------------------------------------------
+		coursemod: {
+			enabled: true
+		},
 		chart: {
 			defaults: { 
 				global: { 
@@ -210,7 +213,8 @@
 			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
 			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
 			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals//snap/snap.svg-min.js', async: true },
+			{ src: 'externals/snap/snap.svg-min.js', async: true },
+			{ src: 'externals/coursemod/coursemod.js', async: true },
 			// ... 
 		]
 	});

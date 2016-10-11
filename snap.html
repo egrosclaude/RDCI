@@ -48,6 +48,20 @@
 </section>
 <!------------------------>
 
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<div class="plain stretch">
+<!--
+	<iframe frameborder=0 marginheight=0 marginwidth=0 height="100%" width="100%" src="Introducción.pdf">Introducción</iframe>
+-->
+	<a href="./Introducción.pdf">Introducción</a>
+</div>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>It's a snap!</h2>
@@ -315,6 +329,16 @@
 			{className: "snapsvg",
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
 			},
+			{className: "svganimate", 
+				defaults: {width:600, height:400}, 
+				initialize: (function(container, options){ 
+					if(options && options.src) {
+						container.innerHTML = SVG(options.src);
+					} else { 
+						container.innerHTML = SVG(container); 
+					}
+				})
+			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },
 
@@ -376,8 +400,8 @@
 			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
 			{ src: 'externals/reveal-plugins/menu/menu.js' },
 			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
-			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
 			{ src: 'externals//snap/snap.svg-min.js', async: true },
 			// ... 
 		]

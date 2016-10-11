@@ -50,21 +50,21 @@
 <section data-transition="slide-in slide-out">
 <h2>Componentes de las redes</h2>
 <ul>
-	<div class="fragment color1">
+	<div class="fragment color1 fade-in">
 	<li>Borde</li>
 	<ul>
 		<li>Computadoras de escritorio, portátiles, celulares, sensores, servidores</li>
 		<li><b>Sistemas finales, sistemas extremos o hosts</b></li>
 	</ul>
 	</div>
-	<div class="fragment color2">
+	<div class="fragment color2 fade-in">
 	<li>Núcleo</li>
 	<ul>
 		<li>Routers, switches</li>
 		<li>En general, <b>nodos de conmutación</b></li>
 	</ul>
 	</div>
-	<div class="fragment color3">
+	<div class="fragment color3 fade-in">
 	<li>Vínculos o enlaces</li>
 	<ul>
 		<li>Propios (LAN) o contratados (MAN, WAN)</li>
@@ -84,8 +84,8 @@
 	<li>Las aplicaciones corren en los sistemas finales</li>
 	<ul>
 		<li>WWW, E-mail, mensajería instantánea, telefonía, juegos en red, archivos compartidos, videoconferencia</li>
-		<li class="fragment">Tienen diferentes requerimientos de ancho de banda, de confiabilidad, de temporización</li>
-	   <span class="fragment">
+		<li class="fragment fade-in">Tienen diferentes requerimientos de ancho de banda, de confiabilidad, de temporización</li>
+	   <span class="fragment fade-in">
 		<li>La red les ofrece dos tipos básicos de servicio de transporte</li>
 		<ul>
 			<li class="color1">Orientado a conexión, confiable (<b>TCP</b>)</li>
@@ -196,7 +196,7 @@ _Ana Candelaria Alvarez, Nahuel Mamani_
 		<li>Formato y orden de los mensajes que serán intercambiados entre las entidades que se comunican</li>
 		<li>Acciones a tomar ante la recepción de un mensaje u otro evento</li>
 	</ul>
-   <span class="fragment">
+   <span class="fragment fade-in">
 	<li>Un autómata para cada entidad</li>
 	<li>Transiciones disparadas por mensajes u otros eventos</li>
    </span>
@@ -322,7 +322,7 @@ _Jonathan Esteban, Nadir Jaramillo_
 	<li>La interfaz es el dispositivo de un sistema, final o intermedio, donde se conecta a un medio</li>
 	<li>El sistema intercambia bits con el medio a través de la interfaz</li>
 	</ul>
-   <span class="fragment">
+   <span class="fragment fade-in">
 	<li>Red local &rarr; Ethernet</li>
 	<li>Proveedores de servicio de Internet, <b>ISPs</b></li>
 	<ul>
@@ -344,7 +344,7 @@ _Jonathan Esteban, Nadir Jaramillo_
 <ul>
 	<li>Jerarquía débil de redes</li>
 	<li>IP (<b>Internet Protocol</b>) las atraviesa a todas</li>
-   <span class="fragment">
+   <span class="fragment fade-in">
 	<li>Niveles de ISPs o <b>tiers</b></li>
 	<ul>
 	<li>Tier 1, centro de la Internet</li>
@@ -850,6 +850,9 @@ _Martín Bermúdez_
 		transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 		// ----------------------------------------------------------------------------
+		coursemod: {
+			enabled: true
+		},
 		chart: {
 			defaults: { 
 				global: { 
@@ -1035,7 +1038,8 @@ _Martín Bermúdez_
 			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
 			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
 			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals//snap/snap.svg-min.js', async: true },
+			{ src: 'externals/snap/snap.svg-min.js', async: true },
+			{ src: 'externals/coursemod/coursemod.js', async: true },
 			// ... 
 		]
 	});
