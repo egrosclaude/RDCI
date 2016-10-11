@@ -1,7 +1,7 @@
 <!-- INCLUDE src/reveal.header -->
 
 <!------------------------>
-<section data-background="img/background01.jpg" data-transition="slide-in slide-out">
+<section data-background="img/background01.jpg" data-transition="slide-in slide-out" data-coursemod-shown="false">
 <div class="frosted">
 	<h3>Redes de Computadoras I</h3>
 	<h2>Introducción</h2>
@@ -748,7 +748,7 @@ _Martín Bermúdez_
 <!------------------------>
 
 	
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
+<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom" data-coursemod-shown="false">
 <h2>Preguntas</h2>
 <ol>
 <li class="fragment">¿Qué aplicaciones de red tienen requerimientos de confiabilidad? ¿Qué aplicaciones <b>no necesitan</b> confiabilidad? ¿Qué aplicaciones de red tienen requerimientos de temporización?</li>
@@ -758,7 +758,7 @@ _Martín Bermúdez_
 </section>
 
 
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
+<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom" data-coursemod-shown="false">
 <h2>Preguntas</h2>
 <ol>
 <li class="fragment">¿Cómo describiría el protocolo que rige la interacción entre un comerciante y su cliente?</li>
@@ -767,7 +767,7 @@ _Martín Bermúdez_
 </ol>
 </section>
 
-<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom">
+<section class="preguntas" data-background="#2c63d5" data-background-transition="zoom" data-coursemod-shown="false">
 <h2>Preguntas</h2>
 <ol>
 <li class="fragment">¿Por qué motivo se forman colas frente a las interfaces de salida de un nodo de conmutación? ¿Qué ocurre en caso extremo? Agregar más memoria a las colas, ¿es una solución?</li>

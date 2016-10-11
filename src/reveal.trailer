@@ -26,7 +26,8 @@
 
 		// ----------------------------------------------------------------------------
 		coursemod: {
-			enabled: true
+			enabled: true,
+			shown: true,
 		},
 		chart: {
 			defaults: { 
@@ -198,7 +199,7 @@
 			{ src: 'externals/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 			{ src: 'externals/reveal/plugin/zoom-js/zoom.js', async: true },
 			// { src: 'plugin/notes/notes.js', async: true },
-			{ src: 'externals/explain/explain.js', async: true },
+			//{ src: 'externals/explain/explain.js', async: true },
 			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
 			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/d3.js' },
 			//{ src: 'externals/reveal/plugin/function-plot/dist/function-plot.js' },
