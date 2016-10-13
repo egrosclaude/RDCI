@@ -17,7 +17,6 @@
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="externals/reveal/lib/css/zenburn.css">
  		<link rel="stylesheet" type="text/css" href="externals/asciinema-player/asciinema-player.css" />
- 		<link rel="stylesheet" type="text/css" href="externals/coursemod/coursemod.css" />
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );

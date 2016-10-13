@@ -777,7 +777,7 @@ _Martín Bermúdez_
 
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in slide-out" data-coursemod-shown="false">
 <h2>Referencias</h2>
 <ul>
 	<li><b>Redes de Computadores, Un Enfoque Descendente</b>, Kurose, Ross, cap. 1</li>
