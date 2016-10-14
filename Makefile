@@ -6,6 +6,8 @@ intro: Introducción.html
 aplic: Aplicación.html
 snap: snap.html
 st: snaptest.html
+demo: demo.html
+colab: Colaborando.html
 
 %.html: src/%.slides $(DEPS) 
 	util/macro $< > $*.html
