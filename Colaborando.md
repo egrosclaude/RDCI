@@ -56,6 +56,10 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 * Sin embargo, cuando una de las interfaces tenga una velocidad de transmisión **mayor** que la otra, el **espacio** ocupado en el enlace por la señal que codifica cada bit será **menor** que la del otro enlace.
 
 
+## Git, Github, Gitlab
+
+
+
 ## Modelos de workflow
 
 Modelo centralizado## Modelo centralizado

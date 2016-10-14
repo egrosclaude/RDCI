@@ -455,6 +455,14 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 </section>
 
 
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Git, Github, Gitlab</h2>
+<img src="img/colab/git.png" class="plain stretch">
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
 
 <!------------------------>
 <section data-transition="slide-in slide-out" data-coursemod-shown="true">
