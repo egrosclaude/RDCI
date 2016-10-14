@@ -54,16 +54,32 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo llegarán al otro extremo del enlace en el mismo tiempo. Sin embargo, cuando una de las interfaces tenga una velocidad de transmisión **mayor** que la otra, el **espacio** ocupado en el enlace por la señal que codifica cada bit será **menor** que la del otro enlace.
 
 
-## Modelos de desarrollo
+## Modelos de workflow
+
+Modelo centralizado## Modelo centralizado
+* Existe un único repositorio compartido que contiene la rama **master**
+* Cada desarrollador mantiene su propio **repositorio local**
+* Cada desarrollador debe hacer **pull** antes de **push**
 
 
+## Modelos de workflow
 
-## Modelos de desarrollo
+Modelo de gestión de integración## Modelo de gestión de integración
+* Cada desarrollador **clona** el repo principal hacia su propio repo público
+* Edita haciendo cambios sobre su repo local y luego efectúa el **push** hacia su propio repo público
+* Notifica al mantenedor del proyecto (**pull request**)
+* El mantenedor agrega el repo del colaborador como remoto 
+* Hace **merge** hacia su repo local
+* Hace **push** hacia el repo principal
 
 
+## Modelos de workflow
 
-## Modelos de desarrollo
-
+##Modelo de "Dictador y generales"
+* La rama **master** es la del dictador
+* Los colaboradores trabajan localmente y hacen **rebase** hacia el master
+* Los generales hacen **merge** de las ramas bajas hacia la rama master
+* El dictador hace **push** de su master al repo principal
 
 
 ## Modelo del dictador

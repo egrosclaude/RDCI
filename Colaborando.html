@@ -41,7 +41,7 @@
 <div class="frosted">
 	</br> 
 	<h2>Colaborando con el</h2>
-	<h1><b>Software Libre</b></h1>
+	<h1>Software Libre</h1>
 	</br> 
 </div>
 </br>
@@ -65,7 +65,7 @@ Eduardo Grosclaude 2016
 	<ul>
 	<li class="fragment">¡No reemplazan al libro!</li>
 		<ul>
-		<li class="fragment">¡No-reemplazan-al-libro!</li>
+		<li class="fragment">¡No-<span class="fragment">reemplazan-</span><span class="fragment">al-</span><span class="fragment">libro!</span></li>
 			<ul>
 			<li class="fragment">¡En serio!</li>
 			</ul>
@@ -491,29 +491,45 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Modelos de desarrollo</h2>
+<section data-transition="slide-in slide-out" data-coursemod-shown="true">
+<h2>Modelos de workflow</h2>
 <h3>Centralizado</h3>
 <img/colab src="img/colab/git-108.png" class="plain stretch">
 <aside data-markdown class="notes">
+## Modelo centralizado
+* Existe un único repositorio compartido que contiene la rama **master**
+* Cada desarrollador mantiene su propio **repositorio local**
+* Cada desarrollador debe hacer **pull** antes de **push**
 </aside>
 </section>
 <!------------------------>
 <!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Modelos de desarrollo</h2>
+<section data-transition="slide-in slide-out" data-coursemod-shown="true">
+<h2>Modelos de workflow</h2>
 <h3>Integration manager</h3>
 <img/colab src="img/colab/git-110.png" class="plain stretch">
 <aside data-markdown class="notes">
+## Modelo de gestión de integración
+* Cada desarrollador **clona** el repo principal hacia su propio repo público
+* Edita haciendo cambios sobre su repo local y luego efectúa el **push** hacia su propio repo público
+* Notifica al mantenedor del proyecto (**pull request**)
+* El mantenedor agrega el repo del colaborador como remoto 
+* Hace **merge** hacia su repo local
+* Hace **push** hacia el repo principal
 </aside>
 </section>
 <!------------------------>
 <!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Modelos de desarrollo</h2>
+<section data-transition="slide-in slide-out" data-coursemod-shown="true">
+<h2>Modelos de workflow</h2>
 <h3>Dictador y generales</h3>
 <img/colab src="img/colab/git-112.png" class="plain stretch">
 <aside data-markdown class="notes">
+##Modelo de "Dictador y generales"
+* La rama **master** es la del dictador
+* Los colaboradores trabajan localmente y hacen **rebase** hacia el master
+* Los generales hacen **merge** de las ramas bajas hacia la rama master
+* El dictador hace **push** de su master al repo principal
 </aside>
 </section>
 <!------------------------>
@@ -623,7 +639,7 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 <section data-transition="fade-in slide-out">
 <h2>Lemas y anti-lemas</h2>
 <table>
-<tr><td style="vertical-align: top">Hay que saber inglés</td><td><img src="img/colab/tevez.jpg"></td></tr>
+<tr><td style="vertical-align: top">Hay que saber inglés</td><td style="text-align: center"><img src="img/colab/tevez.jpg"><i>Veridíficul</i></td></tr>
 </table>
 <aside data-markdown class="notes">
 </aside>
