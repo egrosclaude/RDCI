@@ -81,3 +81,7 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 ## Lemas y anti-lemas
 
 
+
+## Muchas gracias
+
+

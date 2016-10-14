@@ -575,4 +575,12 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 <!------------------------>
 
 
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Muchas gracias</h2>
+<img src="img/colab/colaborando-qrcode.svg" class="plain stretch"> 
+<aside data-markdown class="notes">
+</aside>
+</section>
+<!------------------------>
 <!-- INCLUDE src/colaborando.trailer -->
