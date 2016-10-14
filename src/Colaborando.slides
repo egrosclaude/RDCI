@@ -116,12 +116,6 @@ Eduardo Grosclaude 2016
 </section>
 <!------------------------>
 
-<!------------------------>
-<section data-transition="slide-in slide-out">
-<h2>Repo en Github</h2>
-<img/colab src="img/colab/reveal-1.png" class="plain stretch"> 
-</section>
-<!------------------------>
 
 <!------------------------>
 <section data-transition="slide-in slide-out">
@@ -577,7 +571,7 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 
 <!------------------------>
 <section data-transition="slide-in slide-out">
-<h2>Muchas gracias</h2>
+<h2>¡Muchas gracias!</h2>
 <img src="img/colab/colaborando-qrcode.svg" class="plain stretch"> 
 <aside data-markdown class="notes">
 </aside>

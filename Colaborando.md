@@ -23,8 +23,6 @@
 
 ## Completando la metodología
 
-## Repo en Github
-
 ## Primera solicitud
 
 ## Segunda solicitud
@@ -82,6 +80,6 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 
 
 
-## Muchas gracias
+## ¡Muchas gracias!
 
 
