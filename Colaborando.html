@@ -480,11 +480,13 @@ Esta diapositiva tiene texto asociado que aparece al costado y explica lo que qu
 <aside data-markdown class="notes">
 ##Ancho de banda digital
 La velocidad de transmisión de una interfaz a veces es llamada ancho de banda digital.
+
 El **retardo de transmisión** depende de la velocidad de transmisión de la interfaz, mientras que el **retardo de propagación** es una función de la distancia que tiene que recorrer la señal por el medio.
 
 Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de propagación, sin importar el ancho de banda digital de las interfaces. 
 
-Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo llegarán al otro extremo del enlace en el mismo tiempo. Sin embargo, cuando una de las interfaces tenga una velocidad de transmisión **mayor** que la otra, el **espacio** ocupado en el enlace por la señal que codifica cada bit será **menor** que la del otro enlace.
+* Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo llegarán al otro extremo del enlace en el mismo tiempo. 
+* Sin embargo, cuando una de las interfaces tenga una velocidad de transmisión **mayor** que la otra, el **espacio** ocupado en el enlace por la señal que codifica cada bit será **menor** que la del otro enlace.
 </aside>
 </section>
 
@@ -497,7 +499,7 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 <img/colab src="img/colab/git-108.png" class="plain stretch">
 <aside data-markdown class="notes">
 ## Modelo centralizado
-* Existe un único repositorio compartido que contiene la rama **master**
+* Existe un único repositorio compartido
 * Cada desarrollador mantiene su propio **repositorio local**
 * Cada desarrollador debe hacer **pull** antes de **push**
 </aside>
@@ -659,16 +661,20 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
    </div>
 </div>
 
+<!--
 <link rel="stylesheet" href="externals/tangle/TangleKit/TangleKit.css" type="text/css">
 <script src="externals/tangle/Tangle.js"></script>
 <script src="externals/tangle/TangleKit/mootools.js"></script>
 <script src="externals/tangle/TangleKit/sprintf.js"></script>
 <script src="externals/tangle/TangleKit/BVTouchable.js"></script>
 <script src="externals/tangle/TangleKit/TangleKit.js"></script>
+-->
 <script src="externals/reveal/lib/js/head.min.js"></script>
 <script src="externals/reveal/js/reveal.js"></script>
+<!-- 
 <script src="externals/svg/dist/svg.min.js"></script>
 <script src="externals/snap/snap.svg-min.js"></script>
+-->
 
 <script>
 
@@ -863,14 +869,14 @@ Cuando ambos enlaces transmitan a la vez, los bits emitidos al mismo tiempo lleg
 			//{ src: 'externals/reveal/plugin/chart/Chart.min.js'},
 			// { src: 'externals/reveal/plugin/search/search.js', async: true},
 			//{ src: 'externals/reveal-plugin/chart/csv2chart.js'},
-			{ src: 'externals/asciinema-player/asciinema-player.js' },
+			// { src: 'externals/asciinema-player/asciinema-player.js' },
 			{ src: 'externals/reveal-plugins/anything/anything.js' },
 			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
 			{ src: 'externals/reveal-plugins/menu/menu.js' },
-			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
-			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals/snap/snap.svg-min.js', async: true },
+			// { src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/snap/snap.svg-min.js', async: true },
 			{ src: 'externals/coursemod/coursemod.js', async: true },
 			// ... 
 		]
