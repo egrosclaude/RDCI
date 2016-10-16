@@ -67,9 +67,13 @@ Eduardo Grosclaude 2016
 <!------------------------>
 
 <!------------------------>
-<section data-transition="zoom-in zoom-out">
+<section data-transition="zoom-in concave-out" data-background="img/colab/thtbabw.gif">
+<div class="frosted">
 <h3>¡Tiene que haber una forma mejor!</h3>
-<img/colab src="img/colab/thtbabw.gif" class="plain stretch"> 
+</div>
+<!--
+<img src="img/colab/thtbabw.gif" class="plain stretch"> 
+-->
 <aside data-markdown class="notes">
 </aside>
 </section>
@@ -86,7 +90,7 @@ Eduardo Grosclaude 2016
 	<li>Proyecto con vitalidad</li>
 	<li><a href="http://github.com/hakimel/reveal.js" target="_blank"> https://github.com/hakimel/reveal.js</a></li>
 </ul>
-<img/colab src="img/colab/blog-github.png" class="plain stretch"> 
+<img src="img/colab/blog-github.png" class="plain stretch"> 
 <aside data-markdown class="notes">
 </aside>
 </section>
@@ -96,7 +100,7 @@ Eduardo Grosclaude 2016
 <!------------------------>
 <section data-transition="slide-in convex-out">
 <h2>Plugin de notas</h2>
-<img/colab src="img/colab/notes.png" class="plain stretch"> 
+<img src="img/colab/notes.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -104,7 +108,7 @@ Eduardo Grosclaude 2016
 <!------------------------>
 <section data-transition="convex-in slide-out">
 <h2>Modificando el plugin</h2>
-<img/colab src="img/colab/notes-oso.png" class="plain stretch"> 
+<img src="img/colab/notes-oso.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -112,7 +116,7 @@ Eduardo Grosclaude 2016
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>Completando la metodología</h2>
-<img/colab src="img/colab/audiovisual.png" class="plain stretch"> 
+<img src="img/colab/audiovisual.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -120,15 +124,19 @@ Eduardo Grosclaude 2016
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>Foro de <i>issues</i></h2>
-<img/colab src="img/colab/reveal-issues.png" class="plain stretch"> 
+<img src="img/colab/reveal-issues.png" class="plain stretch"> 
 </section>
 <!------------------------>
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in slide-out" data-background="img/colab/tumbleweed.gif">
+<div class="frosted">
 <h2>Primera solicitud</h2>
-<div class="fragment">
-<img/colab src="img/colab/tumbleweed.gif" class="plain stretch"> 
 </div>
+<!--
+<div class="fragment">
+<img src="img/colab/tumbleweed.gif" class="plain stretch"> 
+</div>
+-->
 </section>
 <!------------------------>
 
@@ -136,32 +144,32 @@ Eduardo Grosclaude 2016
 <section data-transition="slide-in none-out">
 <h2>Segunda solicitud</h2>
 <ul>
-<li>Quiero un plugin que haga lo siguiente:</li>
+<li>"Quiero un plugin que haga lo siguiente:</li>
 <ol>
 <li>	Dividir la pantalla en 2/3 para imagen y 1/3 para texto</li>
 <li>	Sin reloj ni bloque de próxima slide</li>
 <li>	Una sola ventana, no dos</li>
 <li>	Que arranque por default en modo curso</li>
-<li>	Tecla para conmutar modo curso/modo presentación</li>
+<li>	Tecla para conmutar modo curso/modo presentación"</li>
 </ol>
-<li class="fragment">Por favor</li>
+<li class="fragment">"Por favor"</li>
 </ul>
 <div class="fragment">
-<img/colab src="img/colab/fishing.gif" class="plain stretch"> 
+<img src="img/colab/fishing.gif" class="plain stretch"> 
 </div>
 </section>
 <!------------------------>
 <!------------------------>
 <section data-transition="slide-in none-out">
 <h2>Segunda solicitud</h2>
-<img/colab src="img/colab/pedido.png" class="plain stretch"> 
+<img src="img/colab/pedido.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
 <!------------------------>
 <section data-transition="none-in zoom-out">
 <h2>Pasadas unas semanas</h2>
-<img/colab src="img/colab/pedido-2.png" class="plain stretch"> 
+<img src="img/colab/pedido-2.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -169,7 +177,7 @@ Eduardo Grosclaude 2016
 <!------------------------>
 <section data-transition="zoom-in zoom-out">
 <h2>¡Uno que sabe!</h2>
-<img/colab src="img/colab/maarten.png" class="plain stretch"> 
+<img src="img/colab/maarten.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -193,14 +201,14 @@ Esta diapositiva tiene texto asociado que aparece al costado y explica lo que qu
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>A empezar el testing</h2>
-<img/colab src="img/colab/audio.png" class="plain stretch"> 
+<img src="img/colab/audio.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>A corregir bugs</h2>
-<img/colab src="img/colab/bug.png" class="plain stretch"> 
+<img src="img/colab/bug.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
@@ -423,14 +431,14 @@ Esta diapositiva tiene texto asociado que aparece al costado y explica lo que qu
 </br>
 <div style="box-sizing: border-box; vertical-align: top; text-align: center;" class="stretch"> 
 	<span id="isp1" class="isp">1Mbps</span>
-	<img/colab src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal1"></div>
-	<img/colab src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 
 	<span id="isp2" class="isp">1Mbps</span>
-	<img/colab src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	<div id="canal2"></div>
-	<img/colab src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
+	<img src="src/bw/gabinete.png" alt="gabinete.png" class="gabinete plain">
 	
 	<div id="botonera">
 		<button id="start">Iniciar</button>
@@ -468,7 +476,7 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <section data-transition="slide-in slide-out" data-coursemod-shown="true">
 <h2>Modelos de workflow</h2>
 <h3>Centralizado</h3>
-<img/colab src="img/colab/git-108.png" class="plain stretch">
+<img src="img/colab/git-108.png" class="plain stretch">
 <aside data-markdown class="notes">
 ## Modelo centralizado
 * Existe un único repositorio compartido
@@ -481,7 +489,7 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <section data-transition="slide-in slide-out" data-coursemod-shown="true">
 <h2>Modelos de workflow</h2>
 <h3>Integration manager</h3>
-<img/colab src="img/colab/git-110.png" class="plain stretch">
+<img src="img/colab/git-110.png" class="plain stretch">
 <aside data-markdown class="notes">
 ## Modelo de gestión de integración
 * Cada desarrollador **clona** el repo principal hacia su propio repo público
@@ -497,7 +505,7 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <section data-transition="slide-in slide-out" data-coursemod-shown="true">
 <h2>Modelos de workflow</h2>
 <h3>Dictador y generales</h3>
-<img/colab src="img/colab/git-112.png" class="plain stretch">
+<img src="img/colab/git-112.png" class="plain stretch">
 <aside data-markdown class="notes">
 ##Modelo de "Dictador y generales"
 * La rama **master** es la del dictador
@@ -511,12 +519,12 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>Modelo del dictador</h2>
-<img/colab src="img/colab/torvalds.png" class="plain stretch"> 
+<img src="img/colab/torvalds.png" class="plain stretch"> 
 </section>
 <!------------------------>
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in fade-out">
 <h2>Otras formas de colaborar</h2>
 <ul>
    <div class="fragment">
@@ -552,10 +560,10 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <!------------------------>
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="fade-in slide-out">
 <h2>Otras formas de colaborar</h2>
 <ul>
-   <div class="fragment">
+   <div>
 	<li>Aportando ideas</li>
 	<ul>
 		<li>Haciendo requerimientos o críticas</li>
@@ -583,23 +591,25 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <section data-transition="slide-in fade-out">
 <h2>Lemas y anti-lemas</h2>
 <table>
-<tr><td>El SL es defectuoso</td><td>La calidad se logra interactuando con los desarrolladores</td></tr>
+<tr class="fragment"><td>El SL es defectuoso</td><td>La calidad se logra interactuando con los desarrolladores</td></tr>
+<tr class="fragment"><td>El SL no tiene mi aplicación favorita Win_Coso&trade;&copy;&reg;</td><td>Podés contribuir a que exista un reemplazo ("Si no está hecho es porque no lo hiciste")</td></tr>
+<tr class="fragment"><td>La documentación es espantosa</td><td>Pero está públicamente accesible y la podés modificar vos</td></tr>
 </table>
 <aside data-markdown class="notes">
 </aside>
 </section>
 <!------------------------>
-<!------------------------>
+<!------------------------
 <section data-transition="fade-in fade-out">
 <h2>Lemas y anti-lemas</h2>
 <table>
-<tr><td>El SL no tiene mi aplicación favorita Win_Coso&trade;&copy;&reg;</td><td>Podés contribuir a que esté ("Si no está hecho es porque no lo hiciste")</td></tr>
+<tr><td>El SL no tiene mi aplicación favorita Win_Coso&trade;&copy;&reg;</td><td>Podés contribuir a que exista un reemplazo ("Si no está hecho es porque no lo hiciste")</td></tr>
 </table>
 <aside data-markdown class="notes">
 </aside>
 </section>
-<!------------------------>
-<!------------------------>
+------------------------>
+<!------------------------
 <section data-transition="fade-in fade-out">
 <h2>Lemas y anti-lemas</h2>
 <table>
@@ -608,7 +618,7 @@ Dos enlaces de la misma longitud tendrán aproximadamente el mismo retardo de pr
 <aside data-markdown class="notes">
 </aside>
 </section>
-<!------------------------>
+------------------------>
 <!------------------------>
 <section data-transition="fade-in slide-out">
 <h2>Lemas y anti-lemas</h2>

@@ -1,4 +1,4 @@
-.reveal.coursemod__presentation {
+reveal.coursemod__presentation {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -19,7 +19,7 @@
 }
 
 .coursemod__course-view {
-    background-color: white;
+    background-color: #f0f0ff;
    // border-left: 2px solid black;
     font-family: "Helvetica", sans-serif;
     font-size: 18px;

@@ -90,7 +90,7 @@
             67: function() {
                 config.coursemod.shown = !config.coursemod.shown;
                 toggleCourseView(config.coursemod.shown)
-		updateNotes(currentSlide);
+	//	updateNotes(currentSlide);
             }
         }
     });
