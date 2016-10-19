@@ -19,14 +19,15 @@ reveal.coursemod__presentation {
 }
 
 .coursemod__course-view {
-    background-color: #f0f0ff;
-   // border-left: 2px solid black;
+    background-color: #f0f0f0;
+    border-left: 2px solid lightgray;
     font-family: "Helvetica", sans-serif;
-    font-size: 18px;
+    line-height: 130%;
+    font-size: 16px;
     box-sizing: border-box;
     display: none;
     height: 100%;
-    overflow-x: scroll;
+    overflow-y: scroll;
     padding: 0 20px;
     position: fixed;
     right: 0;
