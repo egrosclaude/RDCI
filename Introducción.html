@@ -122,20 +122,18 @@ Existen dos maneras para llevar a cabo la transmisión de datos a través de una
 
 En las redes que implementan este tipo de conmutación, los enlaces que conectan a conmutadores y terminales poseen una cierta cantidad de circuitos y cada uno de estos se destina a una conexión en particular. Por lo tanto, un enlace con N circuitos podrá soportar hasta N conexiones simultáneas.
 
-**_ La característica distintiva de una red basada en conmutación por circuitos es que para establecer una conexión entre dos terminales se debe previamente reservar los recursos que se van a emplear en ella, es decir que se va a reservar un circuito de cada enlace que conecta al par de terminales. _**
+* La característica distintiva de una red basada en conmutación por circuitos es que para establecer una conexión entre dos terminales se debe previamente reservar los recursos que se van a emplear en ella, es decir que se va a reservar un circuito de cada enlace que conecta al par de terminales. 
 
 
 Los recursos que reservó una conexión solo pueden ser empleados por ella durante el tiempo que dure. Esto significa que una conexión no comparte sus recursos con otra.
 
 Existen dos formas para implementar los circuitos de un enlace:
 
-	1. Multiplexación por división de frecuencia (FDM)
-	2. Multiplexación por división en el tiempo (TDM)
 
-1. Multiplexación por división de frecuencia (FDM): el espectro de frecuencias del enlace es dividido en varias bandas, cada una ellas se asignará a una conexión en particular, durante la duración de la misma. Luego, cada circuito obtiene de forma contínua una fracción del ancho de banda del enlace.
+1. **Multiplexación por división de frecuencia (FDM)**: el espectro de frecuencias del enlace es dividido en varias bandas, cada una ellas se asignará a una conexión en particular, durante la duración de la misma. Luego, cada circuito obtiene de forma contínua una fracción del ancho de banda del enlace.
 Por ejemplo, los sistemas de televisión por cable implementan este tipo de conmutación: el espectro de frecuencias del enlace es dividida en varias bandas, cada una de ellas es asignada a una "emisora" o "canal" determinado.
 
-2. Multiplexación por división en el tiempo (TDM): el tiempo es dividido en marcos de una determinada longitud, y cada marco se subdivide en una cantidad fija de  "slots". Cada uno de estos slots está dedicado a una determinada conexión, solo ella puede usarlo para el transporte de datos. Entonces, cuando se establece un enlace mediante la red, se asigna a esta conexión un slot de cada marco, que no son compartidos.
+2. **Multiplexación por división en el tiempo (TDM)**: el tiempo es dividido en marcos de una determinada longitud, y cada marco se subdivide en una cantidad fija de  "slots". Cada uno de estos slots está dedicado a una determinada conexión, solo ella puede usarlo para el transporte de datos. Entonces, cuando se establece un enlace mediante la red, se asigna a esta conexión un slot de cada marco, que no son compartidos.
 A diferencia de FDM, en TDM cada circuito ocupa el total del ancho de banda del enlace durante el "slot" de tiempo que tiene asignado.
 
 
