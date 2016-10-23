@@ -17,10 +17,10 @@
 <h2>Demostrando una metodología didáctica</h2>
 <ul>
 <li>Las siguientes transparencias muestran un material didáctico con el doble propósito de servir al docente como apoyo para dar la clase y al estudiante para repasarla.</li>
-<li>El docente pulsa "C" para convertir el material al "modo presentación" y viceversa (¡haga la prueba!). El estudiante que accede al material visualiza este texto que acompaña las diapositivas en "modo apunte".</li>
+<li>El docente pulsa "C" para convertir el material al "modo presentación" y viceversa (¡haga la prueba!). El estudiante que accede al material visualiza el texto que acompaña las diapositivas en "modo apunte".</li>
 </ul>
 <aside data-markdown class="notes">
-* En la diapositiva "Cálculo de punto flotante" se ve una actividad interactiva que requiere la participación activa del estudiante.
+* En la diapositiva "Cálculo de punto flotante" se propone una actividad que requiere la participación activa del estudiante.
 * En la diapositiva final, "Referencias", el vínculo "Estudiando IC" remite a una cartelera interactiva donde los estudiantes pueden participar colaborativamente.
 </aside> 
 </section>

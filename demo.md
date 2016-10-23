@@ -3,7 +3,7 @@
 
 ## Demostrando una metodología didáctica
 
-* En la diapositiva "Cálculo de punto flotante" se ve una actividad interactiva que requiere la participación activa del estudiante.
+* En la diapositiva "Cálculo de punto flotante" se propone una actividad que requiere la participación activa del estudiante.
 * En la diapositiva final, "Referencias", el vínculo "Estudiando IC" remite a una cartelera interactiva donde los estudiantes pueden participar colaborativamente.
 
 
