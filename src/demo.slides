@@ -167,7 +167,7 @@ Además, la notación científica nos ayuda a interpretar nuestros resultados al
  
 
 
-<section data-background="#3c53b5" data-background-transition="zoom" data-coursemod-shown="false">
+<section data-background="#3c53b5" data-background-transition="zoom" data-coursemod-shown="false" class="preguntas">
 <h2>Preguntas</h2>
 <ul>
 	<li>¿Cuál es el RR de IEEE754, precisión simple?</li>
@@ -179,7 +179,7 @@ Además, la notación científica nos ayuda a interpretar nuestros resultados al
 </ul>
 </section>
 
-<section data-background="#3c53b5" data-background-transition="zoom" data-coursemod-shown="false">
+<section data-background="#3c53b5" data-background-transition="zoom" data-coursemod-shown="false" class="preguntas">
 <h2>Preguntas</h2>
 <ul>
 	<li>Usando el calculador de IEEE754 contenido en este material, o cualquier otro:</li>
