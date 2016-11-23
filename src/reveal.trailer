@@ -26,7 +26,7 @@
 
 		// ----------------------------------------------------------------------------
 		coursemod: {
-			enabled: true,
+			enabled: false,
 			shown: true,
 		},
 		chart: {
@@ -139,7 +139,9 @@
                                  initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
                         },
 			{className: "snapsvg",
-				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
+				initialize: (function(container, options){ 
+					if (options && options.initialize) { options.initialize(container) } 
+				}) 
 			},
 			{className: "svganimate", 
 				defaults: {width:600, height:400}, 
