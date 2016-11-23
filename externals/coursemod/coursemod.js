@@ -103,5 +103,6 @@
             toggleCourseView(config.coursemod.shown);
         }
         updateNotes(currentSlide);
+	Reveal.layout();
     } );
 }).call(this);
