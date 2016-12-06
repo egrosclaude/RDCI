@@ -16,5 +16,3 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 
 * Alguna forma fácil de revertir una transformación sin tener que escribir la función inversa.
 
-
-## C'est tout

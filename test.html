@@ -50,21 +50,20 @@
 	{
 		"initialize" : "function(container) {
 			var svg = Snap('#myid svg');
-			var c = svg.circle(20,20,20).attr({fill: '#BADA55'});
+			var c = svg.circle(20,20,20).attr({fill: '#BAD05A'});
  			var d = svg.rect(40,40,70,80,5).attr({fill: '#5ABAD0'});
 
 			var f1 = function() {c.animate({fill:'#a01020'},1000); d.animate({x:150, y:150},100)};
 			var f2 = function() {c.animate({r:4, cx:200, cy:100, },500)};
 
-			Reveal.addEventListener( 'fragmentshown', function(event){ fragmentsShown[event.fragment.id](); });
-			Reveal.addEventListener( 'fragmenthidden', function(event){ fragmentsHidden[event.fragment.id](); });
-
 			var f2back = function() {c.animate({r:20, cx:20, cy:20},500)};
-			var f1back = function() {c.animate({cx:20, cy:20, fill:'#BADA55'},1000); d.animate({x:40, y:40},100)};
+			var f1back = function() {c.animate({cx:20, cy:20, fill:'#BAD05A'},1000); d.animate({x:40, y:40},100)};
 			
-			var fragmentsShown = { 'frag1' : f1, 'frag2' : f2, };
-			var fragmentsHidden = { 'frag1' : f1back, 'frag2' : f2back, };
+			var shown = { 'frag1' : f1, 'frag2' : f2, };
+			var hidden = { 'frag1' : f1back, 'frag2' : f2back, };
 
+			Reveal.addEventListener('fragmentshown',function(event){if(typeof shown[event.fragment.id] === 'function') {shown[event.fragment.id]()};});
+                       	Reveal.addEventListener('fragmenthidden',function(event){if(typeof hidden[event.fragment.id] === 'function') {hidden[event.fragment.id]()};});
 		}"
 	}
 	-->
@@ -91,7 +90,7 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 
 
 <section data-background="img/background03.jpg">
-<h2>C'est tout</h2>
+<h2 class="frosted">C'est tout</h2>
 </section>
 
 <!------------------------------------------------------------------>
@@ -235,19 +234,8 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
                                  initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
                         },
 			{className: "snapsvg",
-				initialize: (function(container, options){ 
-					if (options && options.initialize) { options.initialize(container) } 
-				}) 
-			},
-			{className: "svganimate", 
 				defaults: {width:600, height:400}, 
-				initialize: (function(container, options){ 
-					if(options && options.src) {
-						container.innerHTML = SVG(options.src);
-					} else { 
-						container.innerHTML = SVG(container); 
-					}
-				})
+				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container) }; }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },
