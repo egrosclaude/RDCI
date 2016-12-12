@@ -61,11 +61,11 @@
     }
 
     function updateNotes(currentSlide) {
-        var notes = currentSlide.querySelector('aside.notes');
+        var notes = currentSlide.querySelector('.coursemod');
         if (notes !== null) {
-            holders.courseView.innerHTML = notes.innerHTML;
-        } else if(currentSlide.hasAttribute('data-notes')){
-            holders.courseView.innerHTML = currentSlide.getAttribute('data-notes');
+		    holders.courseView.innerHTML = notes.innerHTML;
+        } else if(currentSlide.hasAttribute('data-coursemod')){
+            holders.courseView.innerHTML = currentSlide.getAttribute('data-coursemod');
         } else {
             holders.courseView.innerHTML = '';
         }

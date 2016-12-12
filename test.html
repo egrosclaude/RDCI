@@ -44,23 +44,18 @@
 <li class="fragment">y gráficos animados</li>
 </ul>
 
-<div id="myid" class="snapsvg" width="100%" height="100%">
+<div id="snaptest" class="snapsvg" width="100%" height="100%">
 	<svg viewBox="0 0 600 400" width="100%" height="100%"></svg>
 	<!--
 	{
 		"initialize" : "function(container) {
-			var svg = Snap('#myid svg');
+			var svg = Snap('#snaptest svg');
 			var c = svg.circle(20,20,20).attr({fill: '#BAD05A'});
  			var d = svg.rect(40,40,70,80,5).attr({fill: '#5ABAD0'});
 
-			var router = function(x,y) {
-				return svg.image('img/router.svg',x,y,60,50).drag();
-			};
+			var router = function(x,y) { return svg.image('img/router.svg',x,y,60,50).drag(); };
+			var host = function(x,y) { return svg.image('img/host1.svg',x,y,80,100).drag(); };
 
-			var host = function(x,y) {
-				return svg.image('img/host1.svg',x,y,80,100).drag();
-
-			};
 			var h1 = host(300,80).attr({opacity:0});
 			var h2 = host(500,80).attr({opacity:0});
 			var r1 = router(400,80).attr({opacity:0});
@@ -81,11 +76,11 @@
 		}"
 	}
 	-->
-	<span class="fragment" id="frag1"></span>
-	<span class="fragment" id="frag2"></span>
-	<span class="fragment" id="red"></span>
 </div>
-<aside data-markdown class="notes">
+	<span class="fragment" id="frag1" data-markdown></span>
+	<span class="fragment" id="frag2" data-markdown></span>
+	<span class="fragment" id="red"></span>
+<aside data-markdown class="coursemod">
 ## Animaciones en SVG
 
 El código HTML de las transparencias incluye elementos de clase "fragmento". Las acciones de navegar las páginas usando las flechas de dirección inducen eventos de "fragmento visible" o "fragmento oculto".
@@ -106,10 +101,65 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 </aside>
 </section>
 
+<section>
+<h2>Snap zoom</h2>
+<div id="snaptest2" class="snapsvg" width="100%" height="100%">
+	<svg viewBox="0 0 600 400" width="100%" height="100%"></svg>
+	<!--
+	{
+		"initialize" : "function(container) {
+			var svg = Snap('#snaptest2 svg');
 
+			var router = function(x,y) { return svg.image('img/router.svg',x,y,60,50).drag(); };
+			var host = function(x,y) { return svg.image('img/host1.svg',x,y,80,100).drag(); };
+
+			var h1 = host(100,80);
+			var h2 = host(400,80);
+			var r1 = router(250,80);
+
+			var zoomin1 = function() { svg.animate({x: '0px', y:'0px', width: '500px', height: '380px'},1000) };
+			var zoomout1 = function() { svg.animate({x: '0px', y: '0px', width: '600px', height: '400px'},1000) };
+
+			var zoomin2 = function() { svg.animate({ viewBox: '100 20 200 100' }, 800); };
+			var zoomout2 = function() { svg.animate({ viewBox: '0 0 600 400' }, 800); };
+
+			var zoomin3 = function() { Snap.animate([0,0,600,400],[50,50,200,200],function(val) { svg.attr({viewBox: val})},500)};
+			var zoomout3 = function() { Snap.animate([50,50,200,200],[0,0,600,400],function(val) { svg.attr({viewBox: val})},500)};
+
+			function zoom(from, to, dur) { Snap.animate(from,to,function(val) { svg.attr({viewBox: val})},dur) }; 
+			function zoomback(from, to, dur) { Snap.animate(to,from,function(val) { svg.attr({viewBox: val})},dur) }; 
+
+			var zoomin4 = function() { zoom([50,50,200,200],[150,50,200,200],800); };
+			var zoomout4 = function() { zoomback([50,50,200,200],[150,50,200,200],800); };
+
+			var zoomin5 = function() { zoom([150,50,200,200],[320,50,200,150],800); };
+			var zoomout5 = function() { zoomback([150,50,200,200],[320,50,200,150],800); };
+
+
+			var shown = { 'fragz' : zoomin3, 'fragz2' : zoomin4, 'fragz3' : zoomin5};
+			var hidden = { 'fragz' : zoomout3, 'fragz2' : zoomout4, 'fragz3' : zoomout5};
+
+			Reveal.addEventListener('fragmentshown',function(event){
+				if(typeof shown[event.fragment.id] === 'function') {
+					shown[event.fragment.id]();
+				}
+			});
+                       	Reveal.addEventListener('fragmenthidden',function(event){if(typeof hidden[event.fragment.id] === 'function') {hidden[event.fragment.id]()};});
+		}"
+	}
+	-->
+</div>
+<span class="fragment" id="fragz"></span>
+<span class="fragment" id="fragz2"></span>
+<span class="fragment" id="fragz3"></span>
+</section>
+
+
+<!--
 <section data-background="img/background03.jpg">
 <h2 class="frosted">C'est tout</h2>
 </section>
+-->
 
 <!------------------------------------------------------------------>
    </div>
