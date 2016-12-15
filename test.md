@@ -21,3 +21,5 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 
 
 ## Snap zoom
+
+## Snap fragments

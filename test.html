@@ -45,7 +45,7 @@
 </ul>
 
 <div id="snaptest" class="snapsvg" width="100%" height="100%">
-	<svg viewBox="0 0 600 400" width="100%" height="100%"></svg>
+	<svg viewBox="0 0 600 300" width="100%" height="100%"></svg>
 	<!--
 	{
 		"initialize" : "function(container) {
@@ -102,9 +102,7 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 </section>
 
 <section>
-<!-- 
 <h2>Snap zoom</h2>
--->
 <div id="snaptest2" class="snapsvg" width="100%" height="100%">
 	<svg viewBox="0 0 600 400" width="100%" height="100%"></svg>
 	<!--
@@ -133,7 +131,7 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 
 			function lookat(x, dur) { 
 				var bb = x.getBBox(); 
-				var s = bb.x + ' ' + bb.y + ' ' + bb.r0 * 1.2 + ' ' + bb.r0 * 1.7; 
+				var s = bb.x + ' ' + bb.y + ' ' + bb.r0 * 2 + ' ' + bb.r0 * 2 ; 
 				svg.animate({viewBox: s}, dur);
 			};
 
@@ -164,6 +162,59 @@ Esos eventos pueden usarse para disparar funciones de transformación del SVG. E
 <span class="fragment" id="fragz"></span>
 <span class="fragment" id="fragz2"></span>
 <span class="fragment" id="fragz3"></span>
+</section>
+
+<section>
+<h2>Snap fragments</h2>
+<div>
+<ul>
+<li class="fragment" id="fraga">Un <b>host</b> se conecta con...</li>
+<li class="fragment" id="fragb">un <b>router</b>, y éste con...</li>
+<li class="fragment" id="fragc">otro <b>host</b> más</li>
+</ul>
+<span class="fragment" id="fragd"></span>
+</div>
+<div id="snaptest3" class="snapsvg" width="100%" height="100%">
+	<svg viewBox="0 0 600 400" width="100%" height="100%"></svg>
+	<!--
+	{
+		"initialize" : "function(container) {
+			var svg = Snap('#snaptest3 svg');
+
+			var router = function(x,y) { return svg.image('img/router.svg',x,y,60,50).drag(); };
+			var host = function(x,y) { return svg.image('img/host1.svg',x,y,80,100).drag(); };
+
+			var h1 = host(100,80);
+			var h2 = host(400,80);
+			var r1 = router(250,80);
+
+			function lookat(x, dur) { 
+				var bb = x.getBBox(); 
+				var s = bb.x + ' ' + bb.y + ' ' + bb.r0 * 2 + ' ' + bb.r0 * 2 ; 
+				svg.animate({viewBox: s}, dur);
+			};
+
+			var zoomin15 = function() { lookat(h1,800); }; 
+			var zoomout15 = function() { svg.animate({viewBox: '0 0 600 400'},800); };
+			var zoomin25 = function() { lookat(r1,800); }; 
+			var zoomout25 = function() { lookat(h1,800); };
+			var zoomin35 = function() { lookat(h2,800); }; 
+			var zoomout35 = function() { lookat(r1,800); };
+
+
+			var shown = { 'fraga' : zoomin15, 'fragb' : zoomin25, 'fragc' : zoomin35, 'fragd' : zoomout15};
+			var hidden = { 'fraga' : zoomout15, 'fragb' : zoomout25, 'fragc' : zoomout35, 'fragd' : zoomin35};
+
+			Reveal.addEventListener('fragmentshown',function(event){
+				if(typeof shown[event.fragment.id] === 'function') {
+					shown[event.fragment.id]();
+				}
+			});
+                       	Reveal.addEventListener('fragmenthidden',function(event){if(typeof hidden[event.fragment.id] === 'function') {hidden[event.fragment.id]()};});
+		}"
+	}
+	-->
+</div>
 </section>
 
 
