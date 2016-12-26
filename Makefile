@@ -8,6 +8,7 @@ snap: snap.html
 st: snaptest.html
 demo: demo.html
 test: test.html
+test2: test2.html
 colab: Colaborando.html
 
 %.html: src/%.slides $(DEPS) 

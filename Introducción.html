@@ -962,17 +962,8 @@ _Martín Bermúdez_
                                  initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
                         },
 			{className: "snapsvg",
-				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
-			},
-			{className: "svganimate", 
 				defaults: {width:600, height:400}, 
-				initialize: (function(container, options){ 
-					if(options && options.src) {
-						container.innerHTML = SVG(options.src);
-					} else { 
-						container.innerHTML = SVG(container); 
-					}
-				})
+				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container) }; }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },
@@ -1035,8 +1026,8 @@ _Martín Bermúdez_
 			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
 			{ src: 'externals/reveal-plugins/menu/menu.js' },
 			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
-			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
 			{ src: 'externals/snap/snap.svg-min.js', async: true },
 			{ src: 'externals/coursemod/coursemod.js', async: true },
 			// ... 

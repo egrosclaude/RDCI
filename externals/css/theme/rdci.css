@@ -314,6 +314,12 @@ body {
 	background-color: #FFFF00;
 }
 
+.stretch {
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box; 
+}
+
 .color1 {
 	background-color: #AADDFF;
 	border-radius: 10px;
