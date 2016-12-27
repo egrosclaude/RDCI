@@ -17,6 +17,10 @@
 	"initialize" : "function(container) {
 		var svg = Snap('#prueba svg'); 
 
+		var ucbox = svg.rect(0,0,172,14,2).attr({fill: '#faa'});	
+		var alubox = svg.rect(180,0,82,14,2).attr({fill: '#aca'});	
+		var membox = svg.rect(0,18,352,84,2).attr({fill: '#aac'});	
+
 		var Byte = function(id, x, y, v) { 
 			var g = svg.g();
 			for (var i = 0; i < 8; i++) { 
@@ -42,20 +46,18 @@
 			return g;
 		};
 
-		var 	uc = svg.g(Byte('PC',5,0,'00000000'), Byte('IR',95,0,'00000000')).attr({id: 'uc'}), 
-			alu = Byte('Ac',185,0,'00000000').attr({id: 'alu'}),
+		var 	uc = svg.g(Byte('PC',7,2,'00000000'), Byte('IR',97,2,'00000000')).attr({id: 'uc'}), 
+			alu = Byte('Ac',187,2,'00000000').attr({id: 'alu'}),
 			mem = svg.g().attr({id: 'mem'});
 
 		for (var k = 0; k < 4; k++) {
 			for (var j = 0; j < 8; j++) { 
-				mem.append(Byte(j + 8 * k,90*k+5, 20+10 * j, '00100110')); 
+				mem.append(Byte(j + 8 * k,90*k+7, 20+10 * j, '00100110')); 
 			};
 		}
 
-		
-
 		var zoomin = function(id) { 
-			var e = (id == 'ucfrag') ? uc : (id == 'alufrag') ? alu : mem;
+			var e = (id == 'ucfrag') ? ucbox : (id == 'alufrag') ? alubox : membox;
 			svg.animate({viewBox: e.getBBox().vb},800,mina.backin); 
 			var vb = Snap.select('#prueba svg #'+id); console.log(vb);
 		};
