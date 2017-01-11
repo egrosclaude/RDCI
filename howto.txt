@@ -1,2 +1,2 @@
-Avoid user+password
+# Avoid user+password
 git remote set-url origin git+ssh://git@github.com/egrosclaude/RDCI.git
