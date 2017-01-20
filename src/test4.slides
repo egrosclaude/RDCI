@@ -2,10 +2,15 @@
 
 <section>
 <h2>Vacía</h2>
+<ul>
+<li class="fragment current-only">Algunas ideas</li>
+<li class="fragment current-only">para probar</li>
+<li class="fragment current-only">al preparar material</li>
+</ul>
 </section>
 
 
-<section data-coursemod-shown="false" data-state="mcbe">
+<section data-state="mcbe">
 <h3>Modelo Computacional Binario Elemental</h3>
 <span class="fragment" id="ucfrag" data-fragmentshown="zoomin" data-fragmenthidden="zoomout"></span>
 <span class="fragment" id="alufrag" data-fragmentshown="zoomin" data-fragmenthidden="zoomout"></span>

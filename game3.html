@@ -1,0 +1,114 @@
+<HTML>
+<HEAD></HEAD>
+<BODY>
+<div width="100" height="200"><svg id="prueba" viewBox="0 0 100 200" width="100%" height="100%"></svg>
+<script src="externals/snap/snap.svg-min.js"></script>
+<script>
+
+var svg = Snap('#prueba');
+var textAttrs = { fontSize: '7', fontFamily: 'Helvetica', textAnchor: 'middle', dominantBaseline: 'middle', alignmentBaseline: 'middle'};
+var boxAttrs = { fill: '#fff', stroke: '#000', strokeWidth: '0.5', };
+var nullAttrs = { fill: '#eee', stroke: '#ddd' };
+var hoverAttrs = { fill: '#6ff', stroke: '#000', strokeWidth: '0.5' };
+var waitAttrs = { fill: '#f66', stroke: '#000', strokeWidth: '0.5' };
+var waitTextAttrs = { strokeWidth: '0.5' };
+
+var tableau = [];
+var picks = [];
+var pickAttrs = {fill: '#abb'};
+
+function getRandom(min, max) { return Math.floor(Math.random() * (max - min) + min); }
+
+function Challenge(id, type, value) {
+	this.t = 0;
+	this.d = value; 
+	if(this.t == 0) { // b2d
+		this.b = this.d.toString(2);
+		this.b = Array(11 - this.b.length).join('0') + this.b;
+		this.bits = [];
+		for(var i = 10 - this.b.length; i < 10; i++) {
+			this.bits[i] = new Bit(id, this.b[i], i*8, id*12+1);
+		}
+		this.eq = svg.text(10*8+4,id*12+6,'=').attr(textAttrs);
+		this.resBox = new resBox('?');
+		this.resBox.svg.transform(Snap.format('T{x},{y}',{x:11*8, y:id*12+1}));
+		this.resBox.svg.attr({v: this.d});
+		this.resBox.svg.click(waitForAnswer);
+		
+	} else { // d2b
+	}	
+}
+var someWaiting = false;
+function waitForAnswer() {
+	if(someWaiting) return;
+	someWaiting = this;
+	this.unclick(waitForAnswer);
+	this.click(noAnswer);
+	isWaiting = this;
+	this[0].animate(waitAttrs,1000,mina.bounce);
+	this[1].animate(waitTextAttrs,1000,mina.bounce);
+}
+function noAnswer() { 
+	this.unclick(noAnswer);
+	this.click(waitForAnswer);
+	someWaiting = false;
+	this[0].attr(hoverAttrs);
+	this[1].attr(textAttrs);
+}
+	
+function resBox(t) {
+	var box = svg.el("rect").attr({width:15,height:10,rx:1,ry:1}).attr(hoverAttrs);
+	var res = svg.el("text").transform('t8,5').attr({text: t}).attr(textAttrs);
+	this.svg = svg.g(box,res);
+}
+function toggleBit() { this[1].node.innerHTML = (this[1].node.innerHTML == '1') ? '0' : '1'; }
+function mouseOverBit() { this[0].attr(hoverAttrs); }
+function mouseOutBit() { this[0].attr(boxAttrs); }
+function Bit(id, value, x, y) {
+	this.id = id;
+	this.v = value;
+	this.x = x;
+	this.y = y;
+	this.r = svg.rect(x,y,8,10,1).attr(boxAttrs);
+	this.t = svg.text(x+4,y+5,this.v).attr(textAttrs);
+	this.svg = svg.g(this.r, this.t);
+	this.svg.mouseover(mouseOverBit);
+	this.svg.mouseout(mouseOutBit);
+	this.svg.click(toggleBit);
+}
+
+function Pick(v, x, y) {
+	this.v = v;
+	this.x = x; 
+	this.y = y;
+	var c = svg.circle(x, y, 5).attr(pickAttrs);
+	var n = svg.text(x, y, this.v.toString()).attr(textAttrs);
+	this.svg = svg.g(c, n).attr({v: v});
+	this.svg.click(pickPicked);
+}
+function pickPicked() {
+	if(! someWaiting) return;
+	if(this.v == someWaiting.v)
+		console.log("Alcoyana");
+}
+
+function genPicks(n) {
+	for(var i=0; i<n; i++) {
+		var x = 14 * 8 + 12 * (i % 2);
+		var y = 6  + 12 * Math.floor(i % n) / 2;
+		//console.log(x,y);
+		picks[i] = new Pick(getRandom(0,15),x,y);
+	}
+}
+
+genPicks(8);
+for(id = 0; id < 5; id++) {
+	tableau[id] = new Challenge(id, type = 0, picks[id].v);	
+	svg.append(tableau[id].svg);
+	//console.log(tableau[id]);
+}
+
+
+</script>
+</div>
+</BODY>
