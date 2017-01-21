@@ -1,12 +1,4 @@
-<HTML>
-<HEAD></HEAD>
-<BODY>
-<div width="100" height="200"><svg id="bingame" viewBox="0 0 100 200" width="100%" height="100%"></svg>
-<script src="externals/snap/snap.svg-min.js"></script>
-<script src="src/bingame.js">
-
-var svg = Snap('#bingame');
-
+var svg;
 var textAttrs = { fontSize: '7', fontFamily: 'Helvetica', textAnchor: 'middle', dominantBaseline: 'middle', alignmentBaseline: 'middle'};
 var boxAttrs = { fill: '#fff', stroke: '#000', strokeWidth: '0.5', };
 var nullAttrs = { fill: '#eee', stroke: '#ddd' };
@@ -127,7 +119,8 @@ function genPicks(n) {
 	}
 }
 
-function Bingame() {
+var Bingame = function() {
+	svg = Snap('#bingame');
 	genPicks(8); //desacoplar gen de show para dejar z de picks delante de resbox
 	for(id = 0; id < 5; id++) {
 		tableau[id] = new Challenge(id, type = 0, picks[id].v);	
@@ -136,8 +129,3 @@ function Bingame() {
 	}
 }
 
-Bingame();
-
-</script>
-</div>
-</BODY>
