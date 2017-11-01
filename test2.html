@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.2.14/spectre.min.css" />
 		<link rel="stylesheet" href="externals/reveal/css/reveal.css">
 		<link rel="stylesheet" href="externals/css/theme/rdci.css" id="theme">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
@@ -40,6 +41,22 @@
 <h2>Vacía</h2>
 </section>
 
+<section>
+<iframe class="plain stretch" src="spectre-test.html"></iframe>
+</section>
+
+<section>
+<h2>Cards</h2>
+<iframe class="plain stretch" src="picnic-test.html"></iframe>
+</section>
+
+<section>
+<h2>Tabs</h2>
+<iframe class="plain stretch"  src="picnic-test-2.html" height="100%" scrolling="no"></iframe>
+</section>
+
+<section data-background-iframe="picnic-test-2.html" data-background-interactive>
+</section>
 
 <section data-coursemod-shown="false">
 <h3>Modelo Computacional Binario Elemental</h3>
@@ -290,7 +307,7 @@
                         },
 			{className: "snapsvg",
 				defaults: {width:600, height:400}, 
-				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container) }; }) 
+				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container, options) }; }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },

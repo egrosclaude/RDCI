@@ -141,7 +141,7 @@
                         },
 			{className: "snapsvg",
 				defaults: {width:600, height:400}, 
-				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container) }; }) 
+				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container, options) }; }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },

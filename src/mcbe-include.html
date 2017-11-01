@@ -1,0 +1,198 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.4.0/picnic.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+</head>
+<body>
+<div>
+  <label for="modal_1" class="button">Ayuda</label>
+  <label for="modal_2" class="button">Editar</label>
+  <div class="modal">
+  <input id="modal_1" type="checkbox" />
+  <label for="modal_1" class="overlay"></label>
+   <article>
+    <header>
+      <h3>Ayuda</h3>
+    </header>
+    <section class="content">
+      La máquina MCBE se programa en Assembler.</br>
+      Con el botón de Editar se edita el programa.</br>
+      Con el botón de Correr se ejecuta paso a paso el programa.</br>
+    </section>
+    <footer></footer>
+   </article>
+  </div>
+		<!--
+		<div class="modal">
+		  <input id="modal_2" type="checkbox" />
+		  <label for="modal_2" class="overlay"></label>
+		  <div width="80%" height="80%">
+			<table>
+			<tr><th>Dir</th><th>Rótulo</th><th>Instrucción</th><th>Argumento</th></tr>
+			<tr><td>00000</td><td><input id="r00"></td><td><input id="i00"></td><td><input id="a00"></td></tr>
+			<tr><td>00001</td><td><input id="r01"></td><td><input id="i01"></td><td><input id="a01"></td></tr>
+			<tr><td>00010</td><td><input id="r02"></td><td><input id="i02"></td><td><input id="a02"></td></tr>
+			<tr><td>00011</td><td><input id="r03"></td><td><input id="i03"></td><td><input id="a03"></td></tr>
+			<tr><td>00100</td><td><input id="r04"></td><td><input id="i04"></td><td><input id="a04"></td></tr>
+			<tr><td>00101</td><td><input id="r05"></td><td><input id="i05"></td><td><input id="a05"></td></tr>
+			</table>
+		  </div>
+		</div>
+		-->
+ <div class="modal">
+  <input id="modal_2" type="checkbox" />
+  <label for="modal_2" class="overlay"></label>
+  <div width="100%" height="80%" style="margin-left: 10%, margin-right: 10%;">
+  <article>
+  <header>Programa fuente</header>
+  <div class="flex four">
+	<label>Dir</label>
+	<label>Rótulo</label>
+	<label>Dirección</label>
+	<label>Argumento</label>
+  </div>
+  <div class="flex four">
+  <div class="stack">
+	<label>00000</label><label><input id="r00"></label><label><input id="i00"></label><label><input id="a00"></label>
+  </div>
+  <div class="stack">
+	<label>00001</label><label><input id="r01"></label><label><input id="i01"></label><label><input id="a01"></label>
+  </div>
+  <div class="stack">
+	<label>00010</label><label><input id="r02"></label><label><input id="i02"></label><label><input id="a02"></label>
+  </div>
+  <div class="stack">
+	<label>00011</label><label><input id="r03"></label><label><input id="i03"></label><label><input id="a03"></label>
+  </div>
+  <div class="stack">
+	<label>00100</label><label><input id="r04"></label><label><input id="i04"></label><label><input id="a04"></label>
+  </div>
+  <div class="stack">
+	<label>00101</label><label><input id="r05"></label><label><input id="i05"></label><label><input id="a05"></label>
+  </div>
+  </div>
+  </article>
+  <footer></footer>
+  </div>
+ </div>
+</div>
+
+
+<div id="prueba01" width="100%" height="100%">
+<svg viewBox="0 0 400 200" width="100%" height="100%"></svg>
+<script>
+var SVG = Snap('#prueba01 svg'); 
+
+var toolbox = function(svg) {
+};
+
+var MCBEInit = function (svg) {
+	var Byte = function(id, x, y, v) { 
+		var g = svg.g();
+		for (var i = 0; i < 8; i++) { 
+			g.append(svg.rect(x + (i + 1) * 8, y, 8, 10).attr({ 
+				fill: '#fff', stroke: '#000', strokeWidth: '0.5', 
+			})); 
+			g.append(svg.text(x + (i + 1) * 8  + 4, y + 5, v[i]).attr({ 
+				fontSize: '7', 
+				fontFamily: 'Helvetica', 
+				textAnchor: 'middle', 
+				dominantBaseline: 'middle', 
+				alignmentBaseline: 'middle', 
+			})); 
+		}; 
+		g.append(svg.text(x, y + 5, (id == '') ? '0' : id).attr({
+				fontSize: '7', 
+				fontFamily: 'Helvetica', 
+				textAnchor: 'middle', 
+				dominantBaseline: 'middle', 
+				alignmentBaseline: 'middle', 
+			}));
+		g.attr({id: id});
+		return g;
+	};
+
+	var ucbox = svg.g(
+		svg.rect(0,0,172,14,2).attr({fill: '#faa'}),
+		svg.g(Byte('PC',7,2,'00000000'), Byte('IR',97,2,'00000000')).attr({
+			id: 'uc', 
+			class: 'tooltip-top', 
+			'data-tooltip': 'Unidad de Control'
+	}));	
+	var alubox = svg.g(
+		svg.rect(180,0,82,14,2).attr({fill: '#aca'}),	
+		Byte('Ac',187,2,'00000000') 
+	).attr({ id: 'alu'});
+	alubox.addClass( 'tooltip-top' );
+	alubox.attr('data-tooltip', 'Unidad Aritmético-Lógica');
+	/*
+	var alubox = svg.g(
+		svg.rect(180,0,82,14,2).attr({fill: '#aca'}),	
+		Byte('Ac',187,2,'00000000').attr({
+			id: 'alu',
+			'data-tooltip': 'Unidad Aritmético-Lógica'
+	}).addClass({'tooltip-top'})
+	);
+	*/
+
+	var mem = svg.g().attr({id: 'mem'});
+	for (var k = 0; k < 4; k++) {
+		for (var j = 0; j < 8; j++) { 
+			mem.append(Byte(j + 8 * k,90*k+7, 20+10 * j, '00100110')); 
+		}
+	}
+	var membox = svg.g( svg.rect(0,18,352,84,2).attr({fill: '#aac'}), mem);
+
+	/*
+	var a1 = new Audio('audio/click.ogg');
+	var a2 = new Audio('audio/pling.ogg');
+	a1.onended = function(){ delete a1 };
+	a2.onended = function(){ delete a2 };
+	*/
+
+	var zoomin = function(id) { 
+		var d1 = 2500;
+		var d2 = 1800;
+		if(id == 'ucfrag') {
+			ucbox.animate({opacity: '1.0'},d1);
+			alubox.animate({opacity: '0.1'},d1);
+			membox.animate({opacity: '0.1'},d1);
+			svg.animate({viewBox: ucbox.getBBox().vb},d2,mina.backin); 
+		} 
+		if(id == 'alufrag') {
+			ucbox.animate({opacity: '0.1'},d1);
+			alubox.animate({opacity: '1.0'},d1);
+			membox.animate({opacity: '0.1'},d1);
+			svg.animate({viewBox: alubox.getBBox().vb},d2,mina.backin); 
+		} 
+		if(id == 'memfrag') {
+			ucbox.animate({opacity: '0.1'},d1);
+			alubox.animate({opacity: '0.1'},d1);
+			membox.animate({opacity: '1.0'},d1);
+			svg.animate({viewBox: membox.getBBox().vb},d2,mina.backin); 
+		} 
+		//a1.play();
+	};
+	var zoomout = function(id) { 
+		//a2.play();
+		var d1 = 2500;
+		ucbox.animate({opacity: '1.0'},d1);
+		alubox.animate({opacity: '1.0'},d1);
+		membox.animate({opacity: '1.0'},d1);
+		svg.animate({viewBox: '0 0 400 200'},d1,mina.backin); 
+	}; 
+
+/*
+
+	Reveal.addEventListener('fragmentshown',
+		function(event){ eval(event.fragment.getAttribute('data-fragmentshown'))(event.fragment.id); });
+	Reveal.addEventListener('fragmenthidden',function(event){ eval(event.fragment.getAttribute('data-fragmenthidden'))(event.fragment.id); });
+*/ 
+}
+
+MCBEInit(SVG);
+
+</script>
+</div>
+</body>
+</html>

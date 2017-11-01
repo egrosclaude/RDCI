@@ -1,2 +1,6 @@
 
 ## Vacía
+
+## Cards
+
+## Tabs

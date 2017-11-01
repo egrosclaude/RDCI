@@ -10,6 +10,12 @@
 </section>
 
 
+
+<section data-coursemod-shown="false">
+<h3>Modelo Computacional Binario Elemental</h3>
+<iframe class="stretch" src="src/mcbe-include.html" scrolling="no"></iframe>
+</section>
+
 <section data-state="mcbe">
 <h3>Modelo Computacional Binario Elemental</h3>
 <span class="fragment" id="ucfrag" data-fragmentshown="zoomin" data-fragmenthidden="zoomout"></span>
