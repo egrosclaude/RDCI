@@ -314,13 +314,15 @@ Al momento de elegir cuánto tiempo esperar para retransmitir, la estrategia del
 
 <!------------------------>
 <section data-transition="slide-in slide-out">
-<h2></h2>
+<h2>Continuará</h2>
+<!--
 <ul>
 	<li></li>
 	<ul>
 		<li></li>
 	</ul>
 </ul>
+-->
 <!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
 <aside data-markdown class="notes">
 </aside>
