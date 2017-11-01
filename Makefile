@@ -1,9 +1,10 @@
 DEPS = src/reveal.header src/reveal.trailer
 
-all: intro aplic
+all: intro aplic enlace 
 
 intro: Introducción.html
 aplic: Aplicación.html
+enlace: Enlace.html
 snap: snap.html
 st: snaptest.html
 demo: demo.html

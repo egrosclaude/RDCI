@@ -37,27 +37,29 @@
 
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in slide-out" data-coursemod-shown="false">
 <h2>Redes de Computadoras</h2>
 <ol>
-	<li><a href="https://egrosclaude.github.io/RDCI/Introducción.html">Introducción</a></li>
-	<li><a href="https://egrosclaude.github.io/RDCI/Aplicación.html">Capa de Aplicación</a></li>
+	<li><a href="Introducción.html">Introducción</a></li>
+	<li><a href="Aplicación.html">Capa de Aplicación</a></li>
+	<li><a href="Enlace.html">Capa de Enlace</a></li>
 </ol>
 </section>
 <!------------------------>
 <!------------------------------------------------------------------>
    </div>
 </div>
-
+<!--
 <link rel="stylesheet" href="externals/tangle/TangleKit/TangleKit.css" type="text/css">
 <script src="externals/tangle/Tangle.js"></script>
 <script src="externals/tangle/TangleKit/mootools.js"></script>
 <script src="externals/tangle/TangleKit/sprintf.js"></script>
 <script src="externals/tangle/TangleKit/BVTouchable.js"></script>
 <script src="externals/tangle/TangleKit/TangleKit.js"></script>
+<script src="externals/svg/dist/svg.min.js"></script>
+-->
 <script src="externals/reveal/lib/js/head.min.js"></script>
 <script src="externals/reveal/js/reveal.js"></script>
-<script src="externals/svg/dist/svg.min.js"></script>
 <script src="externals/snap/snap.svg-min.js"></script>
 
 <script>
@@ -72,6 +74,10 @@
 		transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 		// ----------------------------------------------------------------------------
+		coursemod: {
+			enabled: true,
+			shown: true,
+		},
 		chart: {
 			defaults: { 
 				global: { 
@@ -182,17 +188,8 @@
                                  initialize: (function(container, options) { asciinema.player.js.CreatePlayer(container, options.URL, options); })
                         },
 			{className: "snapsvg",
-				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) 
-			},
-			{className: "svganimate", 
 				defaults: {width:600, height:400}, 
-				initialize: (function(container, options){ 
-					if(options && options.src) {
-						container.innerHTML = SVG(options.src);
-					} else { 
-						container.innerHTML = SVG(container); 
-					}
-				})
+				initialize: (function(container, options) { if(options && options.initialize) { options.initialize(container, options) }; }) 
 			},
 			{className: "anything",  
 				initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} }) },
@@ -242,7 +239,7 @@
 			{ src: 'externals/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 			{ src: 'externals/reveal/plugin/zoom-js/zoom.js', async: true },
 			// { src: 'plugin/notes/notes.js', async: true },
-			{ src: 'externals/explain/explain.js', async: true },
+			//{ src: 'externals/explain/explain.js', async: true },
 			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/jquery-1.11.2.min.js' },
 			//{ src: 'externals/reveal/plugin/function-plot/site/js/vendor/d3.js' },
 			//{ src: 'externals/reveal/plugin/function-plot/dist/function-plot.js' },
@@ -250,14 +247,15 @@
 			//{ src: 'externals/reveal/plugin/chart/Chart.min.js'},
 			// { src: 'externals/reveal/plugin/search/search.js', async: true},
 			//{ src: 'externals/reveal-plugin/chart/csv2chart.js'},
-			{ src: 'externals/asciinema-player/asciinema-player.js' },
+			//{ src: 'externals/asciinema-player/asciinema-player.js' },
 			{ src: 'externals/reveal-plugins/anything/anything.js' },
 			{ src: 'externals/reveal-plugins/chalkboard/chalkboard.js' },
 			{ src: 'externals/reveal-plugins/menu/menu.js' },
-			{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
-			{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
-			{ src: 'externals//snap/snap.svg-min.js', async: true },
+			//{ src: 'externals/reveal-plugins/mathsvg/math.js', async: true },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+			//{ src: 'externals/reveal-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+			{ src: 'externals/snap/snap.svg-min.js', async: true },
+			{ src: 'externals/coursemod/coursemod.js', async: true },
 			// ... 
 		]
 	});

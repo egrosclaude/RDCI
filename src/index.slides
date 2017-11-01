@@ -1,11 +1,12 @@
 <!-- INCLUDE src/reveal.header -->
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in slide-out" data-coursemod-shown="false">
 <h2>Redes de Computadoras</h2>
 <ol>
-	<li><a href="https://egrosclaude.github.io/RDCI/Introducción.html">Introducción</a></li>
-	<li><a href="https://egrosclaude.github.io/RDCI/Aplicación.html">Capa de Aplicación</a></li>
+	<li><a href="Introducción.html">Introducción</a></li>
+	<li><a href="Aplicación.html">Capa de Aplicación</a></li>
+	<li><a href="Enlace.html">Capa de Enlace</a></li>
 </ol>
 </section>
 <!------------------------>
