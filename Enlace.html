@@ -53,19 +53,31 @@
 ##Servicios de la capa de enlace
 ###Framing
 
-Una entidad de la capa de Enlace en un emisor recibe una PDU de la capa de Red, o paquete, y crea una PDU de la capa de Enlace (**frame, marco o trama**) que la contiene.
+Una entidad de la capa de Enlace en un emisor recibe una **PDU de la capa de Red, o paquete**, y crea una PDU de la capa de Enlace (**frame, marco o trama**) que la contiene.
 El frame puede incluir direcciones de enlace en la cabecera o **header** y un campo de cola o **trailer** de redundancia para control de integridad del frame.
 
 En el lado del receptor, la capa de Enlace reconoce el frame, determinando dónde comienza y termina, separando los campos de header y trailer y entregando su contenido a la capa de Red.
 
 ----
 ###Control de acceso al medio
+
+Ciertas clases de enlace pueden requerir reglas de arbitrado de acceso al medio. Un protocolo de acceso al medio define cuál, de entre todos los nodos conectados, podrá acceder al medio en cada momento para transmitir sus datos.
+
 ----
 ###Entrega confiable
+
+Algunas tecnologías de enlace ofrecen un mecanismo de confiabilidad que asegura el reenvío de los frames con condiciones de error, faltantes o desordenados.
+
 ----
 ###Control de flujo
+
+Ciertas clases de enlaces ofrecen un mecanismo de control de flujo que asegura no saturar a la entidad receptora. Este control de flujo afecta exclusivamente a la transmisión entre dos nodos adyacentes, es decir, pertenecientes al mismo enlace. Lo implementan algunas tecnologías de enlaces punto-a-punto, en particular, las de modems o de interfaces inalámbricas.
+
 ----
 ###Detección y corrección de errores
+
+En algunos enlaces, la tasa de error es sumamente baja y no se justifica aumentar la complejidad de la transmisión de datos con un mecanismo de detección de errores. En esos casos, la instancia de control de integridad que aportan las capas superiores (función de **checksum** de IP, UDP y TCP) es suficiente. Sin embargo, en otros casos, más propensos a errores que otros, es preferible contar con un mecanismo de detección de errores que asegure la integridad a nivel de enlace, entre puntos adyacentes, porque la recuperación de errores ocurridos en un segmento arbitrario de un camino largo puede ser muy costosa.
+
 ----
 
 **Preguntas**
