@@ -18,3 +18,6 @@ colab: Colaborando.html
 	pandoc $*.md -o $*.pdf
 #	pandoc $*-ok.md -o $*.pdf
 
+
+git: 
+	util/github "mm"
