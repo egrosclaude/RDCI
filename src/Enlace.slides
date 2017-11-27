@@ -308,7 +308,7 @@ El formato de los frames Ethernet incluye:
 
 La sigla **CSMA/CD (Carrier Sense Multiple Access with Collision Detection)** identifica al protocolo de acceso al medio de la tecnología Ethernet. Se trata de un protocolo de acceso aleatorio inspirado en **ALOHA**, una red de radio creada para la Universidad de Hawaii en los años 70. 
 
-En Ethernet, los nodos comparten un medio, como un bus o un repetidor multivía (un **hub**), y su tráfico puede sufrir colisiones. La filosofía de Ethernet es tratar de evitar que estas colisiones se produzcan, y cuando ocurren, recuperarse de ellas. Para esto, los nodos aplican las reglas de CSMA/CD. Esta técnica replica aproximadamente la conducta de dos personas que tratan de no interrumpirse durante una conversación, en cuyo caso esperan un tiempo antes de volver a hablar:
+En Ethernet, los nodos comparten un medio, como un **bus** o un repetidor multivía (un **hub**), y su tráfico puede sufrir colisiones. La filosofía de Ethernet es tratar de evitar que estas colisiones se produzcan, y cuando ocurren, recuperarse de ellas. Para esto, los nodos aplican las reglas de CSMA/CD. Esta técnica replica aproximadamente la conducta de dos personas que tratan de no interrumpirse durante una conversación, en cuyo caso esperan un tiempo antes de volver a hablar:
 
 - Antes de transmitir, un nodo sensa el canal. Si está ocupado, espera a que se desocupe.
 - Cuando un nodo que desea transmitir encuentra el canal desocupado, comienza a transmitir, sensando simultáneamente el canal, para controlar que el estado eléctrico del medio coincida con lo que está transmitiendo. 
@@ -324,6 +324,127 @@ Al momento de elegir cuánto tiempo esperar para retransmitir, la estrategia del
 </section>
 <!------------------------>
 
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Bridges o puentes</h2>
+<ul>
+	<li>Dominios de colisión</li>
+	<li>Interfaces y tabla de direcciones MAC</li>
+	<li>Aprendizaje según dirección <b>origen</b></li>
+	<li>Filtrado según la dirección <b>destino</b></li>
+	<ol>
+	<li>Desconocida<span class="fragment"> &rarr; inundar</span></li>
+	<li>Mismo segmento<span class="fragment"> &rarr; descartar</span></li>
+	<li>Segmento diferente<span class="fragment"> &rarr; reenviar</span></li>
+	<li>Broadcast<span class="fragment"> &rarr; inundar</span></li>
+	</ol>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+##Bridges
+
+En un medio de acceso múltiple, y en ausencia de un sistema de acceso al medio como los de división de canal, o de toma de turnos, pueden ocurrir colisiones. Todos los hosts que puedan verse involucrados en una colisión forman un **dominio de colisión**. Si el dominio de colisión es grande (con muchos hosts), las colisiones pueden reducir notablemente el rendimiento de la red.
+
+Un **bridge**, o puente, es un dispositivo que divide los **dominios de colisión**, para hacerlos más pequeños, es decir, integrados por **menos** hosts. Al existir menor cantidad de hosts en un dominio de colisión, la probabilidad de colisiones será menor y se podrá reducir el gasto de ancho de banda en la ocurrencia y recuperación de las colisiones.
+
+Un bridge funciona en la capa de Enlace, ya que es capaz de reconocer frames e interpretar direcciones MAC. Cuenta con dos o más interfaces, conectadas a diferentes segmentos de un medio de acceso múltiple, y una **tabla de direcciones MAC**, en memoria, asociada a cada interfaz. Inicialmente, la tabla de cada interfaz está vacía; pero al recibir tráfico, el bridge **aprende** qué estaciones se encuentran sobre cada segmento de red conectado. Las interfaces del bridge se disponen en **modo promiscuo**, es decir, pueden procesar frames cuyas direcciones MAC destino **no sean las del bridge**.
+
+Para cada frame que ingrese por una interfaz, el bridge tomará nota de cuál es la dirección MAC **origen** del frame, y la agregará a la tabla de direcciones MAC asociada con esa interfaz. De esta forma, el bridge estará registrando que la estación con esa dirección MAC es adyacente a la interfaz en cuestión. Al cabo de algún tiempo, el bridge habrá construido una especie de mapa que indicará sobre cuál interfaz se ubica cada host de la red. Este aprendizaje es automático y resulta transparente a los usuarios. El bridge funcionará sin ninguna configuración, y, si bien sus interfaces tienen direcciones MAC, nunca necesitarán ser direccionadas por ningún tráfico de los usuarios.
+
+Para cada frame que ingrese, el bridge además buscará la dirección MAC **destino** de ese frame en las tablas de sus diferentes interfaces. Pueden ocurrir cuatro situaciones:
+
+1. La dirección destino no se encuentra en ninguna de las tablas, posiblemente porque el host destino aún no ha efectuado ninguna clase de tráfico. En este caso el bridge **copia el frame en todas sus demás interfaces**, es decir, **inunda** sus interfaces con ese frame.
+2. La dirección destino se encuentra en la tabla **de la misma interfaz por la cual ingresó el frame**. En ese caso, tanto la estación origen como la estación destino están ubicadas sobre un mismo segmento de red, y no tiene sentido reenviar ese frame por ninguna otra interfaz. El frame simplemente **se descarta**, porque el medio de acceso múltiple permitirá que el frame, ya emitido, llegue a la estación destino sin que haga falta ninguna otra acción.
+3. La dirección destino se encuentra en la tabla de **una interfaz distinta a la de ingreso**. En este caso el bridge reenvía el frame por la interfaz donde se encuentra el host destino, **y sólo por esa interfaz**, segmentando efectivamente el tráfico de modo que los hosts en los demás segmentos no reciban tráfico irrelevante para ellos.
+4. La dirección destino es **la dirección de broadcast**. Este frame le compete, potencialmente, **a todos** los hosts de la red, y por lo tanto **debe inundarse** como en el caso en que no se conoce la ubicación del destino.
+
+El mecanismo descripto, de aprendizaje automático y filtrado de frames, tiene el resultado de dividir los dominios de colisión, puesto que, si ocurriera una colisión sobre un segmento, el bridge descartaría el frame (porque ha quedado corrupto) y no habría novedad alguna sobre los demás segmentos. Un dominio de colisión de $n$ hosts donde insertáramos un bridge podría quedar dividido en dos dominios de $n/2$ hosts, con una probabilidad de colisiones menor en cada uno de ellos.
+
+Un aspecto interesante de los bridges es que pueden ser construidos de manera que relacionen dominios de colisión implementados sobre diferentes tecnologías de enlace. Así, un bridge puede conectar (y filtrar) segmentos Ethernet, Token Ring, 802.11 (inalámbricos o "WiFi"), etc.
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Switches</h2>
+<ul>
+	<li>Bridge multivía</li>
+	<li>Implementación diferente de Ethernet</li>
+	<ul>
+		<li>Las interfaces de los hosts no cambian</li>
+		<li>Formato de los frames no cambia</li>
+		<li>Pero se eliminan completamente las colisiones</li>
+		<li>Se forman caminos privados entre cada dos hosts que se comunican</li>
+	</ul>
+	<li>Jerarquía de switches</li>
+	<li>Una jerarquía de switches &harr; un dominio de broadcast</li>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+##Switches
+
+Un **bridge multivía** es un **switch** o **conmutador**. Se trata de un elemento de conmutación **en capa de Enlace**, de varias interfaces, que realiza **aprendizaje de direcciones MAC y filtrado de frames** por cada una de esas interfaces. 
+
+Siendo funcionalmente un bridge, el switch aplica las reglas basadas en direcciones MAC origen y destino para la fase de aprendizaje y para la fase de filtrado. Si ingresa al switch un frame:
+
+- Con dirección MAC origen hasta ahora desconocida, la dirección **se aprenderá** (se almacenará en la tabla de direcciones MAC asociada a esa interfaz).
+- Con dirección MAC destino hasta ahora desconocida, la acción será **inundarlo** por todas sus interfaces. 
+- De broadcast, la acción será **inundarlo** por todas sus interfaces. 
+- Con direcciones MAC origen y destino conocidas y localizadas en la misma tabla de una interfaz, el frame **se descarta**.
+- Con direcciones MAC origen y destino conocidas y localizadas en tablas de diferentes interfaces, el frame será **reenviado sólo** a la interfaz correspondiente.
+- ...corrupto por colisiones, será descartado.
+
+El funcionamiento de la red Ethernet "clásica", tal cual se inventó, corresponde a la descripción del algoritmo CSMA/CD sobre un medio de acceso múltiple único y compartido, como un bus coaxil, o un **hub**. Sin embargo, las redes "Ethernet" modernas se **conmutan**, es decir, se implementan con switches. Aunque las interfaces de los hosts siguen funcionando de la misma manera y el formato de los frames es el mismo, en las redes conmutadas no existen las colisiones. 
+
+Una vez que el switch haya aprendido las direcciones MAC de los hosts en la red (según la dirección origen de los frames), comenzará a filtrar los frames (según su dirección destino) haciendo que el tráfico entre dos estaciones **circule sólo entre ellas**. De esta manera creará un camino virtual privado a través de su **switching fabric**, o entramado de conmutación, entre cada par de estaciones que se comunican. Salvo mal funcionamiento o ataque al switch, ningún otro host de la red puede recibir ese tráfico, por lo cual son una alternativa más segura que los hubs.
+
+Conectando unos switches a otros en forma de árbol puede formarse una jerarquía de switches. Como cada switch inunda los broadcasts, todos los hosts conectados a una misma jerarquía de switches forman un **dominio de broadcast**. Es decir, cualquier frame de broadcast emitido por cualquiera de los hosts conectados, será recibido por todos los demás.
+</aside>
+</section>
+<!------------------------>
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>Spanning Tree Protocol</h2>
+<ul>
+	<li></li>
+	<ul>
+		<li></li>
+	</ul>
+</ul>
+<!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
+<aside data-markdown class="notes">
+## Spanning Tree Protocol (STP)
+
+Una topología creada utilizando una jerarquía de switches en árbol tendrá la desventaja de que cada uno de esos switches y enlaces entre ellos resulta un punto único de falla. En redes de misión crítica, normalmente se busca asegurar **tolerancia a fallos**, aplicando alguna forma de **redundancia**. Esto quiere decir que, si duplicamos todos o algunos de los caminos, podremos contar con un camino alternativo para los frames en caso de fallos de switches o de enlaces.
+
+Por este motivo, las topologías tolerantes a fallos ya no corresponden a árboles, sino a grafos que presentan **ciclos**. 
+
+Sin embargo, en una topología Ethernet con ciclos, inmediatamente aparecen anomalías:
+
+- Un frame que sea (por error, o debido a un ataque) dirigido a una dirección MAC **que no se encuentre en la red**, será inundado por el primer switch que lo reciba; pero también por el siguiente, y por el siguiente... hasta volver al primer switch, y así infinitamente, cayendo en un ciclo de conmutación que no se romperá nunca, sobrecargando la red y utilizando recursos sin sentido.
+- Un frame **de broadcast** será inundado, con el mismo efecto.
+
+De esta manera, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**.
+
+Todos los bridges (y por lo tanto, todos los switches) deben implementar el protocolo STP. Mediante este protocolo los switches de una topología con ciclos se configuran en un árbol (un grafo sin ciclos) seleccionando y desactivando algunos enlaces. Los hosts siguen quedando todos conectados al mismo dominio de broadcast; sin embargo, ya no hay ciclos de conmutación entre ellos, y en caso de fallo de algún switch o enlace activo, el árbol será reconfigurado de manera de activarse un camino alternativo.
+
+Para configurar su árbol de expansión, los switches intercambian **BPDUs** (unidades de datos de protocolo STP) con sus switches vecinos. 
+
+- Las BPDUs contienen un número **BID (Bridge ID)** compuesto por un número de prioridad y los últimos tres octetos de la dirección MAC de la interfaz. 
+- Estas BPDUs se inundan hasta llegar a todos los switches de la topología.
+- El switch e interfaz con el BID más bajo son considerados la **interfaz raíz** del árbol.
+- Cada switch identifica a la interfaz más cercana a la interfaz raíz y la considera su **interfaz designada**.
+- Cada switch desactiva a todas las demás interfaces, dejando únicamente a la interfaz designada en condiciones de transmitir tráfico de frames.
+- Las demás interfaces quedan emitiendo y recibiendo BPDUs con los demás switches en forma periódica, para detectar fallos.
+- En caso de fallo, se repite el procedimiento de configuración del árbol, reconectándose todos los nodos a la topología a través de caminos alternativos.
+
+El administrador de una topología puede influir en la elección del bridge raíz configurando manualmente la prioridad que compone el BID. Sin embargo, el mecanismo es automático y transparente. 
+
+</aside>
+</section>
+<!------------------------>
 <!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>Continuará</h2>
