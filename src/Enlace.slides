@@ -408,10 +408,12 @@ Conectando unos switches a otros en forma de árbol puede formarse una jerarquí
 <section data-transition="slide-in slide-out">
 <h2>Spanning Tree Protocol</h2>
 <ul>
-	<li></li>
+	<li>Topologías con redundancia &rarr; grafos con ciclos</li>
 	<ul>
-		<li></li>
+		<li>Frames de broadcast</li>
+		<li>Unicast a direcciones inexistentes</li>
 	</ul>
+	<li>Construir un árbol retirando arcos del grafo</li>
 </ul>
 <!-- <img src="img/IMAGEN.png" class="plain stretch"> -->
 <aside data-markdown class="notes">
