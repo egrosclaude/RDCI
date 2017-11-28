@@ -408,7 +408,7 @@ Conectando unos switches a otros en forma de árbol puede formarse una jerarquí
 <section data-transition="slide-in slide-out">
 <h2>Spanning Tree Protocol</h2>
 <ul>
-	<li>Protocolo STP</li>
+	<li>Protocolo STP (802.1d)</li>
 	<li>Topologías con redundancia &rarr; grafos con ciclos</li>
 	<ul>
 		<li>Frames de broadcast</li>
@@ -430,25 +430,28 @@ Por este motivo, las topologías tolerantes a fallos ya no corresponden a árbol
 
 Sin embargo, en una topología Ethernet con ciclos, inmediatamente aparecen anomalías:
 
-- Un frame que sea (por error, o debido a un ataque) dirigido a una dirección MAC **que no se encuentre en la red**, será inundado por el primer switch que lo reciba; pero también por el siguiente, y por el siguiente... hasta volver al primer switch, y así infinitamente, cayendo en un ciclo de conmutación que no se romperá nunca, sobrecargando la red y utilizando recursos sin sentido.
+- Un frame que (por error, o debido a un ataque) sea dirigido a una dirección MAC **que no se encuentre en la red**, será inundado por el primer switch que lo reciba; pero también por el siguiente, y por el siguiente... hasta volver al primer switch, y así infinitamente, cayendo en un ciclo de conmutación que no se romperá nunca, sobrecargando la red y ocupando recursos sin ningún resultado útil.
 - Un frame **de broadcast** será inundado, con el mismo efecto.
 
-De esta manera, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**.
+De esta manera, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**. Este protocolo está normalizdo por IEEE bajo la denominación **802.1d**.
 
 Todos los bridges (y por lo tanto, todos los switches) deben implementar el protocolo STP. Mediante este protocolo los switches de una topología con ciclos se configuran en un árbol (un grafo sin ciclos) seleccionando y desactivando algunos enlaces. Los hosts siguen quedando todos conectados al mismo dominio de broadcast; sin embargo, ya no hay ciclos de conmutación entre ellos, y en caso de fallo de algún switch o enlace activo, el árbol será reconfigurado de manera de activarse un camino alternativo.
 
 Para configurar su árbol de expansión, los switches intercambian **BPDUs** (unidades de datos de protocolo STP) con sus switches vecinos. 
 
-- Las BPDUs contienen un número **BID (Bridge ID)** compuesto por un número de prioridad y los últimos tres octetos de la dirección MAC de la interfaz. 
-- Estas BPDUs se inundan hasta llegar a todos los switches de la topología.
-- El switch e interfaz con el BID más bajo son considerados la **interfaz raíz** del árbol.
-- Cada switch identifica a la interfaz más cercana a la interfaz raíz y la considera su **interfaz designada**.
-- Cada switch desactiva a todas las demás interfaces, dejando únicamente a la interfaz designada en condiciones de transmitir tráfico de frames.
-- Las demás interfaces quedan emitiendo y recibiendo BPDUs con los demás switches en forma periódica, para detectar fallos.
+- Las BPDUs contienen un número **BID (Bridge ID)** compuesto por un número de prioridad (por defecto, 32768) seguido de la dirección MAC perteneciente al switch. 
+- Estas BPDUs llevan una dirección destino **multicast** reservada, gracias a lo cual son inundadas hasta llegar a todos los switches de la topología. En el camino, los switches que atraviesan van agregándoles información.
+- El switch con el BID más bajo es elegido el **switch raíz** del árbol.
+- Cada switch identifica cuál es la interfaz más cercana al raíz y la considera su **interfaz raíz**.
+- Las interfaces que miran a otros switches pasarán a estado **designado** si están más cerca del switch raíz. Emitirán y recibirán BPDUs y frames de datos que circulen por la red.
+- Todas las demás interfaces hacia otros switches pasarán a estado **bloqueado**, o desactivado y no emitirán BPDUs ni frames de datos.
+- Las interfaces quedan intercambiando BPDUs con los demás switches en forma periódica, para detectar fallos.
 - En caso de fallo, se repite el procedimiento de configuración del árbol, reconectándose todos los nodos a la topología a través de caminos alternativos.
 
 El administrador de una topología puede influir en la elección del bridge raíz configurando manualmente la prioridad que compone el BID. Sin embargo, el mecanismo es automático y transparente. 
 
+- [STP](http://es.m.wikipedia.org/wiki/Spanning_tree)
+- [El protocolo de árbol de expansión (802.1d)](http://pedco.uncoma.edu.ar/pluginfile.php/289780/mod_resource/content/2/CNP3/lan/lan.html#el-protocolo-de-arbol-de-expansion-802-1d)
 </aside>
 </section>
 <!------------------------>
