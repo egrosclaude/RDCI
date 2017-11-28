@@ -1,17 +1,9 @@
 
-## Introducción
 
 
 
-## Componentes de las redes
 
 
-
-## Aplicaciones distribuidas
-
-
-
-## Conmutación de circuitos
 
 Existen dos maneras para llevar a cabo la transmisión de datos a través de una red de enlaces y conmutadores (switches y/o routers). A continuación los describimos:
 				
@@ -43,8 +35,6 @@ _Ana Candelaria Alvarez, Nahuel Mamani_
 
 
 
-## Conmutación de paquetes
-
 **Conmutación por paquetes**
 
 Este tipo de conmutación se aplica en las redes actuales, y su característica principal es que **_los mensajes transmitidos entre dos nodos son divididos en porciones más pequeñas de datos que se denominan paquetes.**_ Cada paquete se conforma por los datos a enviar y por la información de control.
@@ -65,8 +55,6 @@ Por otra parte, quienes argumentan a favor de la _conmutación por paquetes_ afi
 _Ana Candelaria Alvarez, Nahuel Mamani_
 
 
-## Protocolos
-
 ##Protocolos
 
 Los protocolos definen el formato y el orden de los mensajes intercambiados entre dos o más entidades, como así también las acciones llevadas a cabo a partir de la emisión o recepción de un mensaje u otro evento. 
@@ -86,9 +74,7 @@ En general, Internet y las redes de computadoras hacen un uso extensivo de disti
 _Nahir Saddi-Nicolás Panozo-Sebastián López Mesa-Jordan Fingerhut_
 
 
-## Medios físicos
-
-Medios Físicos## Medios Físicos
+## Medios Físicos
 
 Para hacer posible la comunicación entre diferentes terminales, es necesario un canal que los comunique. Este canal es llamado *medio físico* y puede ser de dos tipos:
 
@@ -143,15 +129,9 @@ Bluetooth se divide en 3 clases, dependiendo de su alcance: Clase 1 (aproximadam
 _Jonathan Esteban, Nadir Jaramillo_
 
 
-## Redes de acceso
 
 
 
-## Internet, red de redes
-
-
-
-## Encolamiento y pérdida
 
 ##**Encolamiento y pérdida**
 
@@ -188,8 +168,6 @@ _Daiana Natalí Bonet Peinado_
 
 
 
-## Retardos
-
 
 Cuando se realiza transferencia de datos, estos se dividen en paquetes que se transfieren de un nodo a otro hasta alcanzar su destino final (borde de la red) o morir en el camino (en el núcleo de la red). 
 
@@ -210,26 +188,10 @@ En el momento que el paquete debe ponerse en el buffer para ser transmitido al l
 _Martín Bermúdez_
 
 
-## Ancho de banda digital
-
-## Comando traceroute
 
 
 
-## Capas de protocolos
 
 
-
-## Encapsulamiento
-
-
-
-## Preguntas
-
-## Preguntas
-
-## Preguntas
-
-## Referencias
 
 
