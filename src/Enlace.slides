@@ -3,7 +3,7 @@
 
 
 <!------------------------>
-<section data-transition="slide-in slide-out">
+<section data-transition="slide-in slide-out" data-title="Capa de Enlace">
 <h2>Servicios de la capa de Enlace</h2>
 <ul>
 	<li>Framing</li>
@@ -23,21 +23,25 @@ El frame puede incluir direcciones de enlace en la cabecera o **header** y un ca
 En el lado del receptor, la capa de Enlace reconoce el frame, determinando dónde comienza y termina, separando los campos de header y trailer y entregando su contenido a la capa de Red.
 
 ----
+
 ###Control de acceso al medio
 
 Ciertas clases de enlace pueden requerir reglas de arbitrado de acceso al medio. Un protocolo de acceso al medio define cuál, de entre todos los nodos conectados, podrá acceder al medio en cada momento para transmitir sus datos.
 
 ----
+
 ###Entrega confiable
 
 Algunas tecnologías de enlace ofrecen un mecanismo de confiabilidad que asegura el reenvío de los frames con condiciones de error, faltantes o desordenados.
 
 ----
+
 ###Control de flujo
 
 Ciertas clases de enlaces ofrecen un mecanismo de control de flujo que asegura no saturar a la entidad receptora. Este control de flujo afecta exclusivamente a la transmisión entre dos nodos adyacentes, es decir, pertenecientes al mismo enlace. Lo implementan algunas tecnologías de enlaces punto-a-punto, en particular, las de modems o de interfaces inalámbricas.
 
 ----
+
 ###Detección y corrección de errores
 
 En algunos enlaces, la tasa de error es sumamente baja y no se justifica aumentar la complejidad de la transmisión de datos con un mecanismo de detección de errores. En esos casos, la instancia de control de integridad que aportan las capas superiores (función de **checksum** de IP, UDP y TCP) es suficiente. Sin embargo, en otros casos, más propensos a errores que otros, es preferible contar con un mecanismo de detección de errores que asegure la integridad a nivel de enlace, entre puntos adyacentes, porque la recuperación de errores ocurridos en un segmento arbitrario de un camino largo puede ser muy costosa.
@@ -69,6 +73,7 @@ En algunos enlaces, la tasa de error es sumamente baja y no se justifica aumenta
 En las PDU de las capas de Transporte y de Red encontramos el campo de Internet Checksum o suma de control para verificación de la integridad de las PDU. En la capa de Enlace, las funciones de control de errores son más sofisticadas y pueden detectar (y aun corregir) errores de uno o varios bits.
 
 ----
+
 ###Esquemas de detección de errores
 - Bits de paridad
 - Métodos de sumas de control (Checksums)
@@ -114,6 +119,7 @@ En las PDU de las capas de Transporte y de Red encontramos el campo de Internet 
 Cuando los medios son compartidos, es posible que dos o más nodos comiencen una transmisión al mismo tiempo, haciendo que los frames emitidos colisionen. El efecto de una colisión es corromper los frames que colisionan (hacerlos irreconocibles para la entidad de Enlace que debe recibirlas). Por este motivo es necesaria alguna forma de coordinación para reducir o eliminar la probabilidad de colisiones. Esta función de la capa de Enlace se llama control de acceso al medio (Medium Access Control, abreviado MAC).
 
 ----
+
 ###Características deseables de un protocolo de acceso múltiple
 - Equitativo
 
@@ -124,6 +130,7 @@ Cuando los medios son compartidos, es posible que dos o más nodos comiencen una
 - Simple
 
 ----
+
 ###Categorías de protocolos de acceso múltiple
 
 #### Protocolos de particionamiento de canal
@@ -314,9 +321,9 @@ En Ethernet, los nodos comparten un medio, como un **bus** o un repetidor multiv
 - Cuando un nodo que desea transmitir encuentra el canal desocupado, comienza a transmitir, sensando simultáneamente el canal, para controlar que el estado eléctrico del medio coincida con lo que está transmitiendo. 
 - Si, dentro del tiempo que tarda en emitir los primeros **512 bits** (conocido como **ventana de colisión**) no se encuentran problemas, considera ganado el canal según el protocolo de acceso al medio, y continúa la emisión del frame hasta el final.
 - Si en algún momento la lectura del medio no corresponde a lo que se está transmitiendo, se ha detectado una colisión. En ese caso, el nodo emite una señal llamada de **jam** para indicar al resto de los nodos que ha ocurrido una colisión, y entra en un procedimiento de recuperación de la colisión llamado **backoff exponencial**.
-- Para esto toma un número aleatorio entero K, que puede valer 0 o 1, espera una cantidad de tiempo igual a **K * ventana de colisión**, y vuelve a transmitir. 
-- Si vuelve a producirse colisión, elige un nuevo entero aleatorio K esta vez entre 0 y 3, y nuevamente espera un nuevo intervalo de tiempo igual a K * ventana de colisión. 
-- Cada vez que vuelva a ocurrir una colisión, el nuevo valor aleatorio de K estará en [0, 2^c-1] donde c es el número de ciclo.
+- Para esto toma un número aleatorio entero K, que puede valer 0 o 1, espera una cantidad de tiempo igual a $K \times ventana de colision$, y vuelve a transmitir. 
+- Si vuelve a producirse colisión, elige un nuevo entero aleatorio K esta vez entre 0 y 3, y nuevamente espera un nuevo intervalo de tiempo igual a $K \times ventana de colision$. 
+- Cada vez que vuelva a ocurrir una colisión, el nuevo valor aleatorio de K estará en $[0, 2^c-1]$ donde c es el número de ciclo.
 - El ciclo se repite hasta 16 veces. Si al cabo de 16 ciclos de backoff se ha sufrido colisión en todos los intentos, se declara que la transmisión ha fallado.
 
 Al momento de elegir cuánto tiempo esperar para retransmitir, la estrategia del backoff exponencial apunta a encontrar un equilibrio entre dos extremos. Si el tiempo de espera fuera muy corto, la probabilidad de una segunda colisión aumentaría. Si fuera demasiado largo, se desperdiciaría mucho tiempo de uso del canal en la resolución de la colisión, y así se reduciría el throughput de la red. Al ir aumentando el intervalo de donde se extraen los números aleatorios, la probabilidad de que coincidan los tiempos esperados por ambos nodos va decreciendo exponencialmente. 
@@ -347,9 +354,17 @@ En un medio de acceso múltiple, y en ausencia de un sistema de acceso al medio 
 
 Un **bridge**, o puente, es un dispositivo que divide los **dominios de colisión**, para hacerlos más pequeños, es decir, integrados por **menos** hosts. Al existir menor cantidad de hosts en un dominio de colisión, la probabilidad de colisiones será menor y se podrá reducir el gasto de ancho de banda en la ocurrencia y recuperación de las colisiones.
 
+----
+
+### Aprendizaje
+
 Un bridge funciona en la capa de Enlace, ya que es capaz de reconocer frames e interpretar direcciones MAC. Cuenta con dos o más interfaces, conectadas a diferentes segmentos de un medio de acceso múltiple, y una **tabla de direcciones MAC**, en memoria, asociada a cada interfaz. Inicialmente, la tabla de cada interfaz está vacía; pero al recibir tráfico, el bridge **aprende** qué estaciones se encuentran sobre cada segmento de red conectado. Las interfaces del bridge se disponen en **modo promiscuo**, es decir, pueden procesar frames cuyas direcciones MAC destino **no sean las del bridge**.
 
 Para cada frame que ingrese por una interfaz, el bridge tomará nota de cuál es la dirección MAC **origen** del frame, y la agregará a la tabla de direcciones MAC asociada con esa interfaz. De esta forma, el bridge estará registrando que la estación con esa dirección MAC es adyacente a la interfaz en cuestión. Al cabo de algún tiempo, el bridge habrá construido una especie de mapa que indicará sobre cuál interfaz se ubica cada host de la red. Este aprendizaje es automático y resulta transparente a los usuarios. El bridge funcionará sin ninguna configuración, y, si bien sus interfaces tienen direcciones MAC, nunca necesitarán ser direccionadas por ningún tráfico de los usuarios.
+
+----
+
+### Filtrado
 
 Para cada frame que ingrese, el bridge además buscará la dirección MAC **destino** de ese frame en las tablas de sus diferentes interfaces. Pueden ocurrir cuatro situaciones:
 
@@ -399,6 +414,10 @@ El funcionamiento de la red Ethernet "clásica", tal cual se inventó, correspon
 
 Una vez que el switch haya aprendido las direcciones MAC de los hosts en la red (según la dirección origen de los frames), comenzará a filtrar los frames (según su dirección destino) haciendo que el tráfico entre dos estaciones **circule sólo entre ellas**. De esta manera creará un camino virtual privado a través de su **switching fabric**, o entramado de conmutación, entre cada par de estaciones que se comunican. Salvo mal funcionamiento o ataque al switch, ningún otro host de la red puede recibir ese tráfico, por lo cual son una alternativa más segura que los hubs.
 
+----
+
+### Dominio de broadcast
+
 Conectando unos switches a otros en forma de árbol puede formarse una jerarquía de switches. Como cada switch inunda los broadcasts, todos los hosts conectados a una misma jerarquía de switches forman un **dominio de broadcast**. Es decir, cualquier frame de broadcast emitido por cualquiera de los hosts conectados, será recibido por todos los demás.
 </aside>
 </section>
@@ -424,6 +443,7 @@ Conectando unos switches a otros en forma de árbol puede formarse una jerarquí
 <aside data-markdown class="notes">
 ## Spanning Tree Protocol (STP)
 
+### Redundancia y tolerancia a fallos
 Una topología creada utilizando una jerarquía de switches en árbol tendrá la desventaja de que cada uno de esos switches y enlaces entre ellos resulta un punto único de falla. En redes de misión crítica, normalmente se busca asegurar **tolerancia a fallos**, aplicando alguna forma de **redundancia**. Esto quiere decir que, si duplicamos todos o algunos de los caminos, podremos contar con un camino alternativo para los frames en caso de fallos de switches o de enlaces.
 
 Por este motivo, las topologías tolerantes a fallos ya no corresponden a árboles, sino a grafos que presentan **ciclos**. 
@@ -433,7 +453,11 @@ Sin embargo, en una topología Ethernet con ciclos, inmediatamente aparecen anom
 - Un frame que (por error, o debido a un ataque) sea dirigido a una dirección MAC **que no se encuentre en la red**, será inundado por el primer switch que lo reciba; pero también por el siguiente, y por el siguiente... hasta volver al primer switch, y así infinitamente, cayendo en un ciclo de conmutación que no se romperá nunca, sobrecargando la red y ocupando recursos sin ningún resultado útil.
 - Un frame **de broadcast** será inundado, con el mismo efecto.
 
-De esta manera, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**. Este protocolo está normalizdo por IEEE bajo la denominación **802.1d**.
+----
+
+### Protocolo STP
+
+Debido al problema de la inundación, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**. Este protocolo está normalizdo por IEEE bajo la denominación **802.1d**.
 
 Todos los bridges (y por lo tanto, todos los switches) deben implementar el protocolo STP. Mediante este protocolo los switches de una topología con ciclos se configuran en un árbol (un grafo sin ciclos) seleccionando y desactivando algunos enlaces. Los hosts siguen quedando todos conectados al mismo dominio de broadcast; sin embargo, ya no hay ciclos de conmutación entre ellos, y en caso de fallo de algún switch o enlace activo, el árbol será reconfigurado de manera de activarse un camino alternativo.
 
@@ -448,7 +472,11 @@ Para configurar su árbol de expansión, los switches intercambian **BPDUs** (un
 - Las interfaces quedan intercambiando BPDUs con los demás switches en forma periódica, para detectar fallos.
 - En caso de fallo, se repite el procedimiento de configuración del árbol, reconectándose todos los nodos a la topología a través de caminos alternativos.
 
-El administrador de una topología puede influir en la elección del bridge raíz configurando manualmente la prioridad que compone el BID. Sin embargo, el mecanismo es automático y transparente. 
+El administrador de una topología puede influir en la elección del bridge raíz configurando manualmente la prioridad que compone el BID. Por defecto, sin embargo, el mecanismo es automático y transparente. 
+
+----
+
+### Más detalles
 
 - [STP](http://es.m.wikipedia.org/wiki/Spanning_tree)
 - [El protocolo de árbol de expansión (802.1d)](http://pedco.uncoma.edu.ar/pluginfile.php/289780/mod_resource/content/2/CNP3/lan/lan.html#el-protocolo-de-arbol-de-expansion-802-1d)
