@@ -493,7 +493,7 @@ Sin embargo, en una topología Ethernet con ciclos, inmediatamente aparecen anom
 
 ### Protocolo STP
 
-Debido al problema de la inundación, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**. Este protocolo está normalizdo por IEEE bajo la denominación **802.1d**.
+Debido al problema de la inundación, las topologías con ciclos **están prohibidas** en las redes Ethernet. Pero aún puede utilizarse esa redundancia para obtener tolerancia a fallos gracias al protocolo de árbol de expansión o **STP**. Este protocolo está normalizado por IEEE bajo la denominación **802.1d**.
 
 Todos los bridges (y por lo tanto, todos los switches) deben implementar el protocolo STP. Mediante este protocolo los switches de una topología con ciclos se configuran en un árbol (un grafo sin ciclos) seleccionando y desactivando algunos enlaces. Los hosts siguen quedando todos conectados al mismo dominio de broadcast; sin embargo, ya no hay ciclos de conmutación entre ellos, y en caso de fallo de algún switch o enlace activo, el árbol será reconfigurado de manera de activarse un camino alternativo.
 
