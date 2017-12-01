@@ -23,7 +23,7 @@
 		center: false,
 		previewLinks: true,
 		theme: 'rdci',
-		transition: 'slide', // none/fade/slide/convex/concave/zoom
+		transition: 'fade', // none/fade/slide/convex/concave/zoom
 
 		// ----------------------------------------------------------------------------
 		coursemod: {
