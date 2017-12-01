@@ -485,6 +485,28 @@ El administrador de una topología puede influir en la elección del bridge raí
 <!------------------------>
 <!------------------------>
 <!--
+
+<!------------------------>
+<section data-transition="slide-in slide-out">
+<h2>VLANs</h2>
+<ul>
+	<li></li>
+	<ul>
+		<li></li>
+	</ul>
+</ul>
+<aside data-markdown class="notes">
+## VLANs
+
+Los frames de broadcast son una parte importante de las redes IP sobre Ethernet o tecnologías similares, debido a que ARP es indispensable para la construcción de los frames. Otros protocolos también utilizan frames de broadcast con otros fines, como anunciar servicios por la red. Un caso notable es el de SMB (o su dialecto CIFS), el protocolo para compartir recursos de Windows. Cuando una estación Windows ofrece un recurso compartido, como un disco, una carpeta, o una impresora, periódicamente emite anuncios describiendo este recurso. Estos anuncios son recogidos por agentes de inspección de la red en los demás nodos, y éstos construyen para el usuario una vista simbólica de la red llamada a veces el "entorno de red". De aquí el usuario puede seleccionar y utilizar estos recursos compartidos.
+
+Una red local construida sobre una jerarquía de switches es normalmente un único dominio de broadcast. A medida que la cantidad de estaciones sobre ese dominio crezca, el tráfico de broadcast aumentará, sobre todo si en la red se utilizan protocolos que se apoyan fuertemente en broadcast. Esto consituye un problema porque:
+
+1. Si bien los frames de broadcast son una parte normal e importante de la gestión de información sobre la red, presenta el problema de que es inundado por los switches aun cuando en ciertas circunstancias no sea necesario o no sea conveniente. Por ejemplo, si en una red de usuarios de Windows que abarca todo un campus, una oficina comparte una impresora, los anuncios de esa impresora serán inundados más allá de la oficina. Esos anuncios en broadcast eventualmente llegarán a nodos que, posiblemente, no estén interesados, y tal vez ni siquiera estén autorizados a usar esa impresora. Esta situación se repite para cada oficina de lo que puede ser una gran red local, imponiendo una carga sobre la red que no resulta útil.
+2. Cada vez que una estación reciba un frame de broadcast, el procesamiento de ese frame estará a cargo del software de la entidad de la capa superior, que deberá interrumpir al sistema y utilizar ciclos de procesador que serán sustraídos a las demás aplicaciones. Aun cuando ese frame no sea relevante para el nodo, llevará una cantidad de operaciones del procesador llegar a determinar este hecho. Una carga grande de tráfico de broadcast podría reducir el rendimiento general del equipo.
+</aside>
+</section>
+<!------------------------>
 <section data-transition="slide-in slide-out">
 <h2>Continuará</h2>
 <ul>
